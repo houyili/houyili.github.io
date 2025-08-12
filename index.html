@@ -1,208 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="Researcher, Stepfun" name="description">
+    <meta content="Houyi Li" name="author">
+    <meta content="#222222" name="theme-color">
 
-    <!-- Linking the external css -->
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link href="images/b-loog-smalll.png" rel="icon" sizes="16x16" type="image/png">
+    
+    <!-- CSS -->
+    <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh">
+    <link rel="preload" href="assets/style-2.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
-    <title>Personal Website</title>
+    <noscript>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/style-2.css" rel="stylesheet">
+        <link href="assets/font-awesome.min.css" rel="stylesheet">
+    </noscript>
+
+    <title>Houyi Li @ Stepfun (Updated on Aug. 2025)</title>
 </head>
-
 <body>
-    <!-- Header > Nav > Logo & Menu -->
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="#">Portfolio.</a>
+<div class="container pt-5 allstuffp">
+    <div class="row pt-5 allstuff">
+        <div class="col-md-4 pt-5">
+            <div class="fixed-posi">
+                <p class="name">Houyi Li (李厚意)</p>
+                <img class="profilepic pt-3 pb-2" src="images/profile.png" alt="Profile photo" loading="lazy">
+                <div class="">
+                    <i aria-hidden="true" class="fa fa-graduation-cap"></i>
+                    <a class="menulink" href="https://scholar.google.com/citations?user=LkqxJqoAAAAJ&hl=zh-CN" target="_blank" rel="noopener">Google Scholar</a></div>
+                <div class="">
+                    <i aria-hidden="true" class="fa fa-envelope"></i>
+                    <a class="menulink" href="mailto:lihouyi2013@hotmail.com">Email</a>
+                </div>
+                <div class="">
+                    <i aria-hidden="true" class="fa fa-twitter"></i>
+                    <a class="menulink" href="https://x.com/JackLee1551695" target="_blank" rel="noopener">Twitter</a>
+                </div>
             </div>
-            <div class="nav-menu">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+        </div>
+        <div class="col-md-8 pt-5 about">
+            I am currently at <a class="in-text" href="https://www.stepfun.com/" target="_blank" rel="noopener">StepFun</a>, reporting to <a class="in-text" href="https://scholar.google.com/citations?user=yuB-cfoAAAAJ&hl=en" target="_blank" rel="noopener">Xiangyu Zhang</a>. 
+            I lead pre-training for the <bold>Step3 (321B)</bold> model and serve as the end-to-end Lead for <bold>Step2-mini</bold> (pre-training and post-training).
+            I also built StepFun’s pre-training team from the ground up.
+            <br><br>
+            Prior to StepFun, I was the LLM Lead at <a class="in-text" href="https://www.alibabagroup.com/en-US/" target="_blank" rel="noopener">Alibaba International</a> in 2023, 
+            reporting to <a class="in-text" href="https://www.linkedin.com/in/kaifu-zhang-54624514/?originalSubdomain=cn" target="_blank" rel="noopener">Kaifu Zhang</a>. 
+            I managed the full model lifecycle, 
+            from pre-training and post-training to driving the core LLM technology for commercial initiatives
+            <a class="in-text" href="https://www.aidc-ai.com/" target="_blank" rel="noopener"> such as Aidge </a>.
+            <!-- My scope covered the full model lifecycle, pre-training, post-training, and commercialization efforts
+            <a class="in-text" href="https://www.aidge.com/" target="_blank" rel="noopener"> (like Aidge)</a>. -->
+            I led the team that delivered multilingual large models <bold>Marco-7B</bold> and <bold>Marco-13B</bold>, 
+            and pioneered their path to commercial viability. </p>
+            <!-- <br> -->
+            <!-- My primary interests are centered around building and applying large-scale AI systems: <i class="fa fa-brain" aria-hidden="true"></i> large language models, <i class="fa fa-sitemap" aria-hidden="true"></i> AI infrastructure, and <i class="fa fa-bullseye" aria-hidden="true"></i> personalized recommender systems. -->
+            <!-- <br><br> -->
+            My earlier experience at Taobao and Kuaishou focused on personalized recommendation and advertising. 
+            I specialized in deploying deep learning at scale in consumer-facing (<em>ToC</em>) products 
+            to drive measurable business impact and boost profitability.
+            In the same timeframe, I developed the classic personalized retrieval algorithm <bold>PDN</bold> (<a class="in-text" href="https://dl.acm.org/doi/abs/10.1145/3404835.3462878" target="_blank" rel="noopener">paper</a>).
+            <br><br>
+            After graduating from Xidian University, 
+            I began my career in  <a class="in-text" href="https://www.antgroup.com/en/" target="_blank" rel="noopener">Ant&nbsp;Group</a>'s Infrastructure(Infra) team, 
+            where I spent four years with a focus on AI Infra. 
+            A key achievement from this period was developing 
+            the distributed training framework <a class="in-text" href="https://arxiv.org/abs/2104.10569" target="_blank" rel="noopener"> GraphTheta </a> from scratch, 
+            one of the early frameworks in China to support thousand-machine parallel training.
+            <!-- I began my career at Infrastructure (Infra) team of  <a class="in-text" href="https://www.antgroup.com/en/" target="_blank" rel="noopener">Ant&nbsp;Group</a>,
+            after graduating from <a class="in-text" href="https://en.xidian.edu.cn/" target="_blank" rel="noopener">Xidian&nbsp;University</a>, 
+            spending four years on AI Infra.
+            I developed the distributed training framework <bold>GraphTheta</bold> from scratch,
+            one of the early frameworks in China to support thousand-machine parallel training.         -->
+            <br>
+            <p class="header pt-5">✨ News </p>
+            <p class="paper my-2 pl-2">[2025.07] <img class="img-fluid instilogo p-1" src="images/new.gif" style="height: 1.5em;" alt="New"><a href="https://www.stepfun.com/research/en/step3">Step3(321B-A38B)</a> is opensourced. It is designed end-to-end to minimize decoding costs while delivering top-tier performance in vision–language reasoning.</p>
+            <p class="paper my-2 pl-2">[2025.06] <img class="img-fluid instilogo p-1" src="images/new.gif" style="height: 1.5em;" alt="New"><a href="https://huggingface.co/Farseer-Scaling-Law"> More than 4 hundreds language models</a> are opensourced, a very large sweep of models up to ~10^10 params and ~10^11 tokens, to boost the area of scaling law.</p>
+            <p class="paper my-2 pl-2">[2025.04] <img class="img-fluid instilogo p-1" src="images/new.gif" style="height: 1.5em;" alt="New"><a href="https://huggingface.co/StepLaw">We released almost 4000 models</a> under various hyper-parameter and various setting. This is largest open-source project in optimal hyper-parameter for LLM pre-training.</p>
+            <p class="paper my-2 pl-2">[2025.01] <img class="img-fluid instilogo p-1" src="images/new.gif" style="height: 1.5em;" alt="New">Step2-mini, a LLM with extremely fast inference speed and very low cost, is now available on the <a href="https://platform.stepfun.com/"> open platform</a>. The price is only 1 RMB for one million tokens.<a href="https://mp.weixin.qq.com/s/LbczNQ-3yRbA1o5BQ9wfkg"> (introduction in Chinese) </a></p>
+            <p class="header pt-5">📝 Selected Publications  </p>
+            
+            <div class="py-2">
+                <p class="paper my-2 pl-2">
+                    <span class="papertitle"><a href="https://arxiv.org/abs/2507.19427">Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding </a></span><br>
+                    The StepFun Team<br>
+                    <span class="noter">(<span class="thisauthor">Houyi Li</span>: Core Model Architecture Contributor)</span><br>
+                    <span class="noter">(Technical Report)</span><br>
+                    <a class="tag" href="https://arxiv.org/pdf/2507.19427" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://github.com/stepfun-ai/Step3" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i> Github</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://huggingface.co/collections/stepfun-ai/step3-688a3d652dbb45d868f9d42d" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Huggingface</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://mp.weixin.qq.com/s/t9HAQG6WD3BPwg95d4Y8Fw" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> Media (Chinese)</a>
+                </p>
             </div>
-        </nav>
-    </header>
+            
+            <div class="py-2">
+                <p class="paper my-2 pl-2">
+                    <span class="papertitle"><a href="https://arxiv.org/abs/2506.10972">Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models</a></span><br>
+                    <span class="thisauthor">Houyi Li*</span>, Wenzhen Zheng*, Qiufeng Wang, Zhenyu Ding, Haoying Wang, Zili Wang, Shijie Xuyang, Ning Ding, Shuigeng Zhou, Xiangyu Zhang, Daxin Jiang<br>
+                    <span class="noter"> (* = Equal Contribution)</span><br>
+                    <a class="tag" href="https://arxiv.org/pdf/2506.10972" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://github.com/Farseer-Scaling-Law/Farseer" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i> Github</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://huggingface.co/Farseer-Scaling-Law" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Models</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://wandb.ai/billzid/Farseer?nw=nwuserbillzid" target="_blank"><i class="fa fa-flask" aria-hidden="true"></i> WanDB</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://farseer-scaling-law.github.io/" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Homepage</a>
+                </p>
+            </div>
+            
+            <div class="py-2">
+                <p class="paper my-2 pl-2">
+                    <span class="papertitle"><a href="https://arxiv.org/abs/2506.10972">Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining</a></span><br>
+<span class="thisauthor">Houyi Li*</span>, Wenzhen Zheng*, Qiufeng Wang, Hanshan Zhang, Zili Wang, Shijie Xuyang, Yuantao Fan, Zhenyu Ding, Haoying Wang, Ning Ding, Shuigeng Zhou, Xiangyu Zhang, Daxin Jiang<br>
+                    <span class="noter"> (* = Equal Contribution)</span><br>
+                    <a class="tag" href="https://arxiv.org/pdf/2506.10972" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://github.com/step-law/steplaw" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i> Github</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://huggingface.co/StepLaw" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Models</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://wandb.ai/billzid/predictable-scale" target="_blank"><i class="fa fa-flask" aria-hidden="true"></i> WanDB</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://step-law.github.io/" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Homepage</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://mp.weixin.qq.com/s/atA8y-vF-7wsUcXKoz5oFw" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> Media (Chinese)</a>
+                </p>
+            </div>
 
-    <!-- Home Section -->
-    <section id="home">
-        <div class="left">
-            <div class="content">
-                <h2>Hi, I'm <span class="stroke-text">Joe Doe</span></h2>
-                <p>Web Designer & Developer</p>
-                <p>I am a web designer and developer. I have a passion for web design and love to create for web and
-                    mobile devices.</p>
-                <a href="#" class="btn">Hire Me</a>
+            <div class="py-2">
+                <p class="paper my-2 pl-2">
+                    <span class="papertitle"><a href="https://arxiv.org/abs/2506.12119">Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?</a></span><br>
+                    <span class="thisauthor">Houyi Li*</span>, Ka Man Lo*, Ziqi Wang, Zili Wang, Wenzhen Zheng, Shuigeng Zhou, Xiangyu Zhang, Daxin Jiang<br>
+                    <span class="noter"> (* = Equal Contribution)</span><br>
+                    <a class="tag" href="https://arxiv.org/pdf/2506.12119" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://huggingface.co/kamanphoebe/moe_surpass_dense" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Models</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://kamanphoebe.github.io/moe-surpass-dense.github.io/" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Homepage</a>
+                </p>
             </div>
-        </div>
-        <div class="right">
-            <div class="image">
-                <img src="images/profile.jpg" alt="name">
+            
+            <div class="py-2">
+                <p class="paper my-2 pl-2">
+                    <span class="papertitle"><a href="https://arxiv.org/abs/2412.19255">Multi-matrix Factorization Attention</a></span><br>
+                    Jingcheng Hu*, <span class="thisauthor">Houyi Li*</span>, Yinmin Zhang, Zili Wang, Shuigeng Zhou, Xiangyu Zhang, Heung-Yeung Shum, Daxin Jiang<br>
+                    <span class="noter"> (* = Equal Contribution)</span><br>
+                    <span class="conf"><i class="fa fa-trophy" aria-hidden="true"></i> ACL 2025 </span><br>
+                    <a class="tag" href="https://arxiv.org/pdf/2412.19255" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://mp.weixin.qq.com/s/q1HCHpzT665BeL54dNVTsA" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> Media (Chinese)</a>
+                </p>
             </div>
-            <div class="card">
-                <div class="rotate-45"></div>
-            </div>
-            <div class="card">
-                <div class="rotate-minus-45"></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- projects Section -->
-    <section id="projects">
-        <div class="header">
-            <h1>My Projects</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptatum ea quidem quibusdam accusamus
-                sint aperiam harum unde dolorem assumenda!</p>
-        </div>
-        <div class="projects-list">
-            <div class="project">
-                <div class="project-image">
-                    <img src="images/project.jpg" alt="Project 1">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Project 1</h2>
-                    <p class="project-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae autem
-                        aperiam qui aliquam
-                        libero!</p>
-                    <div class="status">
-                        <a href="#" class="view-more-btn">View Project</a>
-                        <span class="count">200+</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project">
-                <div class="project-image">
-                    <img src="images/project.jpg" alt="Project 1">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Project 1</h2>
-                    <p class="project-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae autem
-                        aperiam qui aliquam
-                        libero!</p>
-                    <div class="status">
-                        <a href="#" class="view-more-btn">View Project</a>
-                        <span class="count">200+</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project">
-                <div class="project-image">
-                    <img src="images/project.jpg" alt="Project 1">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Project 1</h2>
-                    <p class="project-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae autem
-                        aperiam qui aliquam
-                        libero!</p>
-                    <div class="status">
-                        <a href="#" class="view-more-btn">View Project</a>
-                        <span class="count">200+</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project">
-                <div class="project-image">
-                    <img src="images/project.jpg" alt="Project 1">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Project 1</h2>
-                    <p class="project-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae autem
-                        aperiam qui aliquam
-                        libero!</p>
-                    <div class="status">
-                        <a href="#" class="view-more-btn">View Project</a>
-                        <span class="count">200+</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project">
-                <div class="project-image">
-                    <img src="images/project.jpg" alt="Project 1">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Project 1</h2>
-                    <p class="project-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae autem
-                        aperiam qui aliquam
-                        libero!</p>
-                    <div class="status">
-                        <a href="#" class="view-more-btn">View Project</a>
-                        <span class="count">200+</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project">
-                <div class="project-image">
-                    <img src="images/project.jpg" alt="Project 1">
-                </div>
-                <div class="project-info">
-                    <h2 class="project-title">Project 1</h2>
-                    <p class="project-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae autem
-                        aperiam qui aliquam
-                        libero!</p>
-                    <div class="status">
-                        <a href="#" class="view-more-btn">View Project</a>
-                        <span class="count">200+</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <!-- <section id="skills">
-        <div class="header">
-            <h1>My Skills</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora illum nam nostrum officiis et
-                doloremque!</p>
-        </div>
-        <div class="skills-list">
-            <div class="skill">
-                <img class="skill-img" src="images/project.jpg" alt="HTML">
-                <h3>HTML5</h3>
+            <div class="py-2">
+                <p class="paper my-2 pl-2">
+                    <span class="papertitle"><a href="https://dl.acm.org/doi/abs/10.1145/3404835.3462878">Path-based Deep Network for Candidate Item Matching in Recommenders</a></span><br>
+                    <span class="thisauthor">Houyi Li</span>, Zhihong Chen, Chenliang Li, Rong Xiao, Hongbo Deng, Peng Zhang, Yongchao Liu, Haihong Tang<br>
+                    <span class="conf"><i class="fa fa-trophy" aria-hidden="true"></i> SIGIR 2021 </span><br>
+                    <a class="tag" href="https://arxiv.org/abs/2105.08246" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://mp.weixin.qq.com/s/NznGxYghZZI-h_gnE2cu3A" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> Media (Chinese)</a>
+                </p>
             </div>
-        </div>
-    </section> -->
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="background"></div>
-        <div class="contact-form">
-            <h1>Contact Me</h1>
-            <form>
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" cols="30" rows="10"
-                        placeholder="Enter your message"></textarea>
-                </div>
-                <div class="form-group">
-                    <button class="btn" type="submit">Send Message</button>
-                </div>
-            </form>
-        </div>
-    </section>
+            <div class="py-2">
+                <p class="paper my-2 pl-2">
+                    <span class="papertitle"><a href="https://arxiv.org/abs/2104.10569">GraphTheta: A Distributed Graph Neural Network Learning System With Flexible Training Strategy</a></span><br>
+                    Yongchao Liu*, <span class="thisauthor">Houyi Li*</span>, Guowei Zhang, Xintan Zeng, Yongyong Li, Bin Huang, Peng Zhang, Zhao Li, Xiaowei Zhu, Changhua He, Wenguang Chen<br>
+                    <span class="noter"> (* = Equal Contribution)</span><br>
+                    <a class="tag" href="https://arxiv.org/pdf/2104.10569" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+                </p>
+            </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p style="text-align: center;">&copy; 2024 Portfolio. All Rights Reserved. <br> <a
-                    href="https://github.com/adhikareeprayush">Prayush Adhikari</a></p>
-        </div>
-    </footer>
 
+
+            <p class="header pt-5">📞 Contact</p>
+
+            Please feel free to contact me via my email (left) if you are interested in our papers, my experience, or you just have any problem on research which I may help.
+
+            <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=200&t=tt&d=ttkJZYV_JYWsZaLTPSNNB_KpBVL7-FpSVOfSmz5CsC8&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff"></script>
+
+            <div class="row text-center py-4">
+                <div class="mx-auto mt-2">
+                    <img class="img-fluid instilogo p-0" src="images/ant-logo.jpeg" alt="Ant Logo" loading="lazy">
+                    <div class="institution">Ant Group</div>
+                    <div class="years">2016 - 2020</div>
+                </div>
+                <div class="mx-auto mt-2">
+                    <img class="img-fluid instilogo p-0" src="images/ali-logo-2.jpeg" alt="Alibaba Logo" loading="lazy">
+                    <div class="institution">Alibaba Group</div>
+                    <div class="years">2020 - 2021 & 2023 - 2024</div>
+                </div>
+                <div class="mx-auto mt-2">
+                    <img class="img-fluid instilogo p-2" src="images/kuai-log-2.jpeg" alt="Kuai Logo" loading="lazy">
+                    <div class="institution">Kuaishou Group</div>
+                    <div class="years">2021 - 2023</div>
+                </div>
+                <div class="mx-auto mt-2">
+                    <img class="img-fluid instilogo p-3" src="images/b-logo.png" alt="Step Logo" loading="lazy">
+                    <div class="institution">StepFun</div>
+                    <div class="years">2024 - Present</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Scripts -->
+<script defer crossorigin="anonymous"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script defer crossorigin="anonymous"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script defer crossorigin="anonymous"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script defer src="assets/style-2.js"></script>
 </body>
-
 </html>
