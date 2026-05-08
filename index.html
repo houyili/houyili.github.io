@@ -45,8 +45,9 @@
             </div>
         </div>
         <div class="col-md-8 pt-5 about">
-            I am currently at <a class="in-text" href="https://www.stepfun.com/" target="_blank" rel="noopener">StepFun</a>, reporting to <a class="in-text" href="https://scholar.google.com/citations?user=yuB-cfoAAAAJ&hl=en" target="_blank" rel="noopener">Xiangyu Zhang</a>. 
-            I lead pre-training for the <bold>Step3 (321B)</bold> model and serve as the end-to-end Lead for <bold>Step2-mini</bold> (pre-training and post-training).
+            I was previously the Pretrain Team Leader at <a class="in-text" href="https://www.stepfun.com/" target="_blank" rel="noopener">StepFun</a>, reporting to <a class="in-text" href="https://scholar.google.com/citations?user=yuB-cfoAAAAJ&hl=en" target="_blank" rel="noopener">Xiangyu Zhang</a>.
+            I led pre-training for the <a class="in-text" href="https://huggingface.co/stepfun-ai/step3" target="_blank" rel="noopener"><bold>Step3 (321B)</bold></a> model and served as the end-to-end Lead for <bold>Step2-mini</bold> (pre-training and post-training).
+            I also contributed to the model architecture design of <a class="in-text" href="https://huggingface.co/stepfun-ai/Step-3.5-Flash" target="_blank" rel="noopener"><bold>Step3.5-flash (198B)</bold></a>.
             I also built StepFun’s pre-training team from the ground up.
             <br><br>
             Prior to StepFun, I was the LLM Lead at <a class="in-text" href="https://www.alibabagroup.com/en-US/" target="_blank" rel="noopener">Alibaba International</a> in 2023, 
@@ -79,6 +80,8 @@
             one of the early frameworks in China to support thousand-machine parallel training.         -->
             <br>
             <p class="header pt-5">✨ News </p>
+            <p class="paper my-2 pl-2">[2026.04] <img class="img-fluid instilogo p-1" src="images/new.gif" style="height: 1.5em;" alt="New"><a href="https://iclr.cc/virtual/2026/oral/10007429" target="_blank" rel="noopener">Mixture-of-Experts Can Surpass Dense LLMs Under Strictly Equal Resource</a> was accepted as an <bold>ICLR 2026 Oral</bold>. I gave the oral presentation in Brazil on April 25, 2026. <a href="slides/moe-equal-resources-camera-ready.pdf" target="_blank" rel="noopener">Camera ready</a> / <a href="slides/moe-equal-resources-poster.pdf" target="_blank" rel="noopener">Poster</a> / <a href="slides/moe-equal-resources-slides.pdf" target="_blank" rel="noopener">Slides</a></p>
+            <p class="paper my-2 pl-2">[2025.12] <img class="img-fluid instilogo p-1" src="images/new.gif" style="height: 1.5em;" alt="New"><a href="https://openreview.net/forum?id=2Gnp8sdwVe&referrer=%5Bthe%20profile%20of%20Houyi%20Li%5D(%2Fprofile%3Fid%3D~Houyi_Li1)" target="_blank" rel="noopener">Predictable Scale (Part II) -- Farseer: A Refined Scaling Law in LLMs</a> was accepted as a <bold>NeurIPS 2025 Spotlight</bold>. <a href="slides/predictable-scale-part-ii-camera-ready.pdf" target="_blank" rel="noopener">Camera ready</a> / <a href="slides/predictable-scale-part-ii-poster.pdf" target="_blank" rel="noopener">Poster</a></p>
             <p class="paper my-2 pl-2">[2025.07] <img class="img-fluid instilogo p-1" src="images/new.gif" style="height: 1.5em;" alt="New"><a href="https://www.stepfun.com/research/en/step3">Step3(321B-A38B)</a> is opensourced. It is designed end-to-end to minimize decoding costs while delivering top-tier performance in vision–language reasoning.</p>
             <p class="paper my-2 pl-2">[2025.06] <img class="img-fluid instilogo p-1" src="images/new.gif" style="height: 1.5em;" alt="New"><a href="https://huggingface.co/Farseer-Scaling-Law"> More than 4 hundreds language models</a> are opensourced, a very large sweep of models up to ~10^10 params and ~10^11 tokens, to boost the area of scaling law.</p>
             <p class="paper my-2 pl-2">[2025.04] <img class="img-fluid instilogo p-1" src="images/new.gif" style="height: 1.5em;" alt="New"><a href="https://huggingface.co/StepLaw">We released almost 4000 models</a> under various hyper-parameter and various setting. This is largest open-source project in optimal hyper-parameter for LLM pre-training.</p>
@@ -87,17 +90,19 @@
             
             <div class="py-2">
                 <p class="paper my-2 pl-2">
-                    <span class="papertitle"><a href="https://arxiv.org/abs/2507.19427">Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding </a></span><br>
-                    The StepFun Team<br>
-                    <span class="noter">(<span class="thisauthor">Houyi Li</span>: Core Model Architecture Contributor)</span><br>
-                    <span class="noter">(Technical Report)</span><br>
-                    <a class="tag" href="https://arxiv.org/pdf/2507.19427" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+                    <span class="papertitle"><a href="https://arxiv.org/abs/2506.12119">Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?</a></span><br>
+                    <span class="thisauthor">Houyi Li*</span>, Ka Man Lo*, Ziqi Wang, Zili Wang, Wenzhen Zheng, Shuigeng Zhou, Xiangyu Zhang, Daxin Jiang<br>
+                    <span class="noter"> (* = Equal Contribution)</span><br>
+                    <span class="noter"><i class="fa fa-trophy" aria-hidden="true"></i> ICLR 2026 Oral</span><br>
+                    <a class="tag" href="slides/moe-equal-resources-camera-ready.pdf" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
                     <span class="tagsep">|</span>
-                    <a class="tag" href="https://github.com/stepfun-ai/Step3" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i> Github</a>
+                    <a class="tag" href="https://huggingface.co/kamanphoebe/moe_surpass_dense" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Models</a>
                     <span class="tagsep">|</span>
-                    <a class="tag" href="https://huggingface.co/collections/stepfun-ai/step3-688a3d652dbb45d868f9d42d" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Huggingface</a>
+                    <a class="tag" href="https://kamanphoebe.github.io/moe-surpass-dense.github.io/" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Homepage</a>
                     <span class="tagsep">|</span>
-                    <a class="tag" href="https://mp.weixin.qq.com/s/t9HAQG6WD3BPwg95d4Y8Fw" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> Media (Chinese)</a>
+                    <a class="tag" href="slides/moe-equal-resources-poster.pdf" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Poster</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="slides/moe-equal-resources-slides.pdf" target="_blank" rel="noopener"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i> Slides</a>
                 </p>
             </div>
             
@@ -106,7 +111,8 @@
                     <span class="papertitle"><a href="https://arxiv.org/abs/2506.10972">Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models</a></span><br>
                     <span class="thisauthor">Houyi Li*</span>, Wenzhen Zheng*, Qiufeng Wang, Zhenyu Ding, Haoying Wang, Zili Wang, Shijie Xuyang, Ning Ding, Shuigeng Zhou, Xiangyu Zhang, Daxin Jiang<br>
                     <span class="noter"> (* = Equal Contribution)</span><br>
-                    <a class="tag" href="https://arxiv.org/pdf/2506.10972" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+                    <span class="noter"><i class="fa fa-trophy" aria-hidden="true"></i> NeurIPS 2025 Spotlight</span><br>
+                    <a class="tag" href="slides/predictable-scale-part-ii-camera-ready.pdf" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
                     <span class="tagsep">|</span>
                     <a class="tag" href="https://github.com/Farseer-Scaling-Law/Farseer" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i> Github</a>
                     <span class="tagsep">|</span>
@@ -115,6 +121,8 @@
                     <a class="tag" href="https://wandb.ai/billzid/Farseer?nw=nwuserbillzid" target="_blank"><i class="fa fa-flask" aria-hidden="true"></i> WanDB</a>
                     <span class="tagsep">|</span>
                     <a class="tag" href="https://farseer-scaling-law.github.io/" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Homepage</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="slides/predictable-scale-part-ii-poster.pdf" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Poster</a>
                 </p>
             </div>
             
@@ -139,14 +147,17 @@
 
             <div class="py-2">
                 <p class="paper my-2 pl-2">
-                    <span class="papertitle"><a href="https://arxiv.org/abs/2506.12119">Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?</a></span><br>
-                    <span class="thisauthor">Houyi Li*</span>, Ka Man Lo*, Ziqi Wang, Zili Wang, Wenzhen Zheng, Shuigeng Zhou, Xiangyu Zhang, Daxin Jiang<br>
-                    <span class="noter"> (* = Equal Contribution)</span><br>
-                    <a class="tag" href="https://arxiv.org/pdf/2506.12119" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+                    <span class="papertitle"><a href="https://arxiv.org/abs/2507.19427">Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding </a></span><br>
+                    The StepFun Team<br>
+                    <span class="noter">(<span class="thisauthor">Houyi Li</span>: Core Model Architecture Contributor)</span><br>
+                    <span class="noter">(Technical Report)</span><br>
+                    <a class="tag" href="https://arxiv.org/pdf/2507.19427" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
                     <span class="tagsep">|</span>
-                    <a class="tag" href="https://huggingface.co/kamanphoebe/moe_surpass_dense" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Models</a>
+                    <a class="tag" href="https://github.com/stepfun-ai/Step3" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i> Github</a>
                     <span class="tagsep">|</span>
-                    <a class="tag" href="https://kamanphoebe.github.io/moe-surpass-dense.github.io/" target="_blank"><i class="fa fa-home" aria-hidden="true"></i> Homepage</a>
+                    <a class="tag" href="https://huggingface.co/collections/stepfun-ai/step3-688a3d652dbb45d868f9d42d" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Huggingface</a>
+                    <span class="tagsep">|</span>
+                    <a class="tag" href="https://mp.weixin.qq.com/s/t9HAQG6WD3BPwg95d4Y8Fw" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> Media (Chinese)</a>
                 </p>
             </div>
             
