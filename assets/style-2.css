@@ -297,7 +297,7 @@ body.academic {
 .academic h1 span {
     font-size: 23px;
     margin-left: 15px;
-    color: #888;
+    color: #707070;
     font-weight: 300;
     letter-spacing: 0;
 }
@@ -306,7 +306,7 @@ body.academic {
     font-size: 17px;
 }
 .academic .research-line {
-    color: #777;
+    color: #707070;
     font-size: 13px;
     margin: 0;
 }
@@ -323,7 +323,7 @@ body.academic {
     box-shadow: 0 3px 12px #00000016;
 }
 .profile-caption {
-    color: #777;
+    color: #707070;
     margin-top: 16px;
     font-size: 12px;
     line-height: 1.65;
@@ -358,7 +358,7 @@ body.academic {
     line-height: 1.65;
 }
 .academic .news-row time {
-    color: #777;
+    color: #707070;
 }
 .academic .publication {
     padding: 16px 0;
@@ -484,7 +484,10 @@ body.academic {
 }
 .academic .credit {
     border-top: 1px solid #eee;
-    color: #888;
+    color: #707070;
+}
+.academic .credit a {
+    text-decoration: underline;
 }
 @media (max-width: 1020px) {
     .academic-main {
