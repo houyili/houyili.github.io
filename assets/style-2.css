@@ -353,17 +353,18 @@ body.academic {
     margin: 52px 0 15px;
 }
 .academic .news-row {
-    padding: 11px 0;
-    font-size: 14px;
+    padding: 7px 0;
+    font-size: 15px;
+    line-height: 1.65;
 }
 .academic .news-row time {
     color: #777;
 }
 .academic .publication {
-    border-bottom: 1px solid #eee;
+    padding: 16px 0;
+    border-bottom: 0;
 }
 .academic .publication:last-child {
-    border-bottom: 0;
     padding-bottom: 12px;
 }
 .academic .paper-index {
