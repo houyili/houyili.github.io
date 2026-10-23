@@ -282,7 +282,7 @@ body.academic {
 }
 .academic-main {
     max-width: 930px;
-    margin: 52px auto 80px;
+    margin: 52px auto 40px;
 }
 .academic h1 {
     font-size: 43px;
@@ -362,6 +362,10 @@ body.academic {
 .academic .publication {
     border-bottom: 1px solid #eee;
 }
+.academic .publication:last-child {
+    border-bottom: 0;
+    padding-bottom: 12px;
+}
 .academic .paper-index {
     color: #b509ac;
     font-weight: 500;
@@ -399,18 +403,34 @@ body.academic {
     vertical-align: baseline;
 }
 .academic .career-strip {
-    border-top: 1px solid #eee;
-    padding-top: 42px;
+    border-top: 0;
+    padding-top: 0;
+    margin: 24px 0 20px;
 }
-.academic .contact {
-    text-align: center;
+.academic .career-item {
+    gap: 3px;
 }
-.academic .contact .social-links {
-    justify-content: center;
+.academic .career-item strong {
+    font-size: 13px;
 }
-.academic .contact p {
-    color: #666;
-    font-size: 14px;
+.academic .logo-box {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 0;
+    align-items: flex-end;
+}
+.academic .logo-box img {
+    display: block;
+    width: 144px;
+    height: 80px;
+    object-position: center bottom;
+}
+.academic .logo-box img[src$="kuai-log-2.jpeg"] {
+    /* Compensate for the white margin inside the original logo image. */
+    object-position: center calc(100% + 20px);
+}
+.academic .career-item:last-child .logo-box img {
+    width: 80px;
 }
 .academic .credit {
     border-top: 1px solid #eee;
@@ -418,7 +438,7 @@ body.academic {
 }
 @media (max-width: 1020px) {
     .academic-main {
-        margin: 42px 6vw 60px;
+        margin: 42px 6vw 32px;
     }
     .academic .top-nav {
         margin: 0 6vw;
