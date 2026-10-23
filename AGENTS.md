@@ -5,8 +5,7 @@
 This repository is a small static personal homepage intended for GitHub Pages-style hosting.
 
 - `index.html` contains the full page content, layout, external CDN includes, and script tags.
-- `assets/style-2.css` holds local CSS overrides and responsive behavior.
-- `assets/style-2.js` applies runtime styling through jQuery.
+- `assets/style-2.css` holds typography, colors, local CSS overrides, and responsive behavior. Keep presentation in CSS so the static page renders without JavaScript.
 - `assets/fonts/` contains the bundled Font Awesome font files used by `assets/font-awesome.min.css`.
 - `images/` stores profile, logo, favicon, and news indicator assets referenced by `index.html`.
 - `slides/` currently has no tracked content; use it only for presentation assets that should be published with the site.
@@ -38,6 +37,13 @@ When changing JavaScript, open the browser console and confirm there are no runt
 The current history uses short messages such as `minor` and `initial homepage`; prefer a concise but more descriptive imperative subject, for example `Update publication links` or `Refresh profile copy`.
 
 Pull requests should include a short summary, screenshots for visual changes, and the manual validation performed. Mention any changed external links, CDN dependencies, or newly added media files.
+
+## SEO Maintenance
+
+- Keep the page title, description, social previews, and `ProfilePage` / `Person` JSON-LD consistent with the visible biography.
+- Use `Person.sameAs` only for the author's own identity/profile pages, not papers, models, or team repositories. Research belongs in the profile page's `hasPart` entries.
+- Update `sitemap.xml` lastmod and the profile's `dateModified` when making significant content or structured-data changes; use the actual edit date.
+- Preserve the H1/H2 hierarchy, canonical URL, and crawlable static content when editing layout.
 
 ## Security & Configuration Tips
 

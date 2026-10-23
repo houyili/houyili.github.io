@@ -1,5 +1,84 @@
+body {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-size: 12pt;
+    color: #777;
+    background-color: #fff;
+}
+
+a {
+    color: #a00;
+    text-decoration: none;
+}
+
+.menulink {
+    color: #777;
+    font-size: 13pt;
+    text-decoration: none;
+}
+
+.name,
+.header {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.name {
+    color: #111;
+    font-size: 23pt;
+}
+
+.biography p {
+    margin: 0 0 1.5rem;
+}
+
+.biography p:last-child {
+    margin-bottom: 0;
+}
+
+strong {
+    font-weight: 400;
+}
+
+.header {
+    color: #a00;
+    font-size: 18pt;
+}
+
+.papertitle,
+.tag {
+    color: #a00;
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.papertitle {
+    font-size: 12pt;
+}
+
+.thisauthor {
+    color: #111;
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.institution {
+    color: #111;
+    font-size: 12px;
+}
+
+.years {
+    color: #a00;
+    font-size: 11px;
+}
+
 .instilogo {
     height: 50px;
+    width: auto;
     filter: grayscale(20%);
 }
 
@@ -47,6 +126,7 @@ a:hover {
 
 .profilepic {
     width: 150px;
+    height: auto;
     border-radius: 50%;
     /* filter: grayscale(100%); */
 }
