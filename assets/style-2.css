@@ -257,16 +257,13 @@ section {
 }
 /* Layout adapted from al-folio. Original MIT notice: licenses/al-folio-LICENSE.txt. */
 body.academic {
-    --accent-primary: #3858a6;
-    --accent-primary-soft: #f0f3fa;
-    --accent-primary-border: #c5d0e8;
-    --accent-primary-hover: #e2e9f7;
-    --accent-secondary: #356b5b;
-    --accent-secondary-soft: #f0f6f3;
-    --accent-secondary-border: #caddd4;
-    --accent-secondary-hover: #e1ede7;
-    --global-theme-color: var(--accent-primary);
-    --global-hover-color: var(--accent-primary);
+    --link-color: #245b9e;
+    --link-soft: #f1f5fb;
+    --link-border: #cbd9ed;
+    --link-hover: #e3ecf8;
+    --emphasis-color: #b13248;
+    --global-theme-color: var(--link-color);
+    --global-hover-color: var(--link-color);
 
     font: 400 16px/1.7 Roboto,Arial,sans-serif;
     color: #252525;
@@ -280,14 +277,7 @@ body.academic {
     border-bottom: 1px solid #e9e9e9;
     font-size: 14px;
 }
-.academic .top-nav nav a {
-    color: #555;
-}
-.academic .top-nav nav a:hover {
-    color: var(--accent-primary);
-}
 .academic .wordmark {
-    color: #222;
     font-size: 19px;
     font-weight: 300;
 }
@@ -353,12 +343,19 @@ body.academic {
 .academic .biography p:last-child {
     margin-bottom: 0;
 }
-.academic a {
-    color: var(--accent-secondary);
-    text-decoration: none;
-}
-.academic a:hover {
+.academic a,
+.academic .publication h3 a {
+    color: var(--link-color);
     text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .18em;
+    text-decoration-skip-ink: auto;
+}
+.academic a:hover,
+.academic a:focus-visible {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }
 .academic h2 {
     font-size: 27px;
@@ -388,7 +385,7 @@ body.academic {
     padding-bottom: 12px;
 }
 .academic .paper-index {
-    color: var(--accent-primary);
+    color: #707070;
     font-weight: 500;
 }
 .academic .publication h3 {
@@ -400,7 +397,7 @@ body.academic {
     color: #666;
 }
 .academic .paper-notes {
-    color: var(--accent-secondary);
+    color: #707070;
 }
 .academic .paper-meta {
     display: flex;
@@ -415,33 +412,33 @@ body.academic {
 .academic .paper-meta .paper-links {
     display: contents;
 }
-.academic .subtitle a,
-.academic .news-row a:first-of-type,
-.academic .news-row strong,
+.academic .news-row strong {
+    color: var(--emphasis-color);
+}
 .academic .authors .thisauthor {
-    color: var(--accent-primary);
+    color: #333;
 }
 .academic .subtitle a {
     font-weight: 500;
 }
 .academic .biography .focus-primary,
 .academic .biography strong {
-    color: var(--accent-primary);
+    color: var(--emphasis-color);
     font-weight: 600;
 }
-.academic .biography .focus-secondary {
-    color: var(--accent-secondary);
-    font-weight: 400;
+.academic .biography a .focus-primary,
+.academic .biography a strong {
+    color: inherit;
 }
-.academic .research-line,
-.academic .profile-caption {
-    color: var(--accent-secondary);
+.academic .biography .focus-secondary {
+    color: inherit;
+    font-weight: 400;
 }
 .academic .paper-venue {
     display: inline-flex;
     align-items: baseline;
     gap: 5px;
-    color: var(--accent-primary);
+    color: var(--emphasis-color);
     font-size: 15px;
     font-weight: 700;
     line-height: 1.45;
@@ -452,31 +449,20 @@ body.academic {
     font-size: 11px;
 }
 .academic .paper-links a {
-    --resource-color: var(--accent-secondary);
-    --resource-bg: var(--accent-secondary-soft);
-    --resource-border: var(--accent-secondary-border);
-    --resource-hover: var(--accent-secondary-hover);
-    border: 1px solid var(--resource-border);
+    border: 1px solid var(--link-border);
     border-radius: 3px;
     padding: 1px 8px;
-    color: var(--resource-color);
-    background: var(--resource-bg);
+    color: var(--link-color);
+    background: var(--link-soft);
     font-size: 11px;
     transition: background-color .15s ease, border-color .15s ease;
 }
-.academic .paper-links .resource-pdf,
-.academic .paper-links .resource-models {
-    --resource-color: var(--accent-primary);
-    --resource-bg: var(--accent-primary-soft);
-    --resource-border: var(--accent-primary-border);
-    --resource-hover: var(--accent-primary-hover);
-}
 .academic .paper-links a:hover,
 .academic .paper-links a:focus-visible {
-    color: var(--resource-color);
-    background: var(--resource-hover);
+    color: var(--link-color);
+    background: var(--link-hover);
     border-color: currentColor;
-    text-decoration: none;
+    text-decoration: underline;
 }
 .academic .paper-links a:focus-visible {
     outline: 2px solid currentColor;
