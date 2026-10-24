@@ -45,7 +45,7 @@
         <link href="assets/fonts/roboto-latin.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
         <!-- Generated styles: run python3 scripts/sync-styles.py after editing source CSS. -->
         <style id="homepage-styles">
-/* Source: assets/style-2.css */
+/* Source: assets/homepage.css */
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -133,6 +133,10 @@ html {
 }
 body {
     margin: 0;
+    padding: 0;
+    font: 400 16px/1.7 Roboto,Arial,sans-serif;
+    color: var(--text-color);
+    background: var(--page-bg);
 }
 h1, h2, h3 {
     color: inherit;
@@ -145,7 +149,14 @@ img {
     border-style: none;
 }
 a {
-    text-underline-offset: .2em;
+    color: var(--link-color);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .18em;
+    text-decoration-skip-ink: auto;
+}
+a:hover, a:focus-visible {
+    text-decoration-thickness: 2px;
 }
 button, select {
     font: inherit;
@@ -185,6 +196,11 @@ section {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+    max-width: 930px;
+    margin: 0 auto;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--divider-color);
+    font-size: 14px;
 }
 .top-nav nav {
     display: flex;
@@ -193,7 +209,6 @@ section {
     align-items: center;
 }
 .top-nav a {
-    text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -217,221 +232,46 @@ section {
 }
 .wordmark {
     white-space: nowrap;
-}
-.social-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-.social-links a {
-    font-size: 14px;
-}
-.biography p {
-    margin: 0 0 1.15em;
-}
-.news-row {
-    display: grid;
-    grid-template-columns: 90px minmax(0,1fr);
-    gap: 22px;
-    padding: 16px 0;
-}
-.news-row time {
-    font-size: 13px;
-    font-variant-numeric: tabular-nums;
-}
-.news-row div {
-    min-width: 0;
-}
-.publication {
-    display: grid;
-    grid-template-columns: 35px minmax(0,1fr);
-    gap: 18px;
-    padding: 26px 0;
-}
-.paper-index {
-    font-size: 12px;
-    padding-top: 5px;
-}
-.publication h3 {
-    margin: 0 0 9px;
-    line-height: 1.45;
-    font-size: 19px;
-}
-.publication h3 a {
-    color: inherit;
-    text-decoration: none;
-}
-.publication h3 a:hover {
-    text-decoration: underline;
-}
-.authors {
-    font-size: 13px;
-    line-height: 1.7;
-}
-.authors .thisauthor {
-    color: inherit;
-    font-weight: 600;
-}
-.paper-notes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 14px;
-    font-size: 12px;
-    margin: 6px 0;
-}
-.paper-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px 15px;
-    margin-top: 10px;
-    font-size: 12px;
-}
-.paper-links a {
-    text-decoration: none;
-}
-.paper-links a:hover {
-    text-decoration: underline;
-}
-.career-strip {
-    display: grid;
-    grid-template-columns: repeat(4,minmax(0,1fr));
-    gap: 24px;
-    margin: 84px 0 72px;
-    text-align: center;
-}
-.career-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 7px;
-}
-.career-item strong {
-    font-size: 12px;
-    font-weight: 500;
-}
-.career-item span {
-    font-size: 11px;
-}
-.logo-box {
-    height: 54px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 12px;
-}
-.logo-box img {
-    width: 96px;
-    height: 52px;
-    object-fit: contain;
-}
-.career-item:last-child .logo-box img {
-    width: 60px;
-}
-.contact {
-    padding-top: 32px;
-}
-.contact h2 {
-    font-size: 30px;
-    margin: 0 0 20px;
-}
-.contact p {
-    margin: 0 0 24px;
-}
-.credit {
-    padding: 28px 20px;
-    font-size: 11px;
-    text-align: center;
-    line-height: 1.8;
-}
-.credit a {
-    color: inherit;
-}
-@media (max-width: 700px) {
-    .top-nav {
-        align-items: flex-start;
-        gap: 24px;
-    }
-    .top-nav nav {
-        gap: 13px;
-    }
-    .top-nav nav a {
-        font-size: 12px;
-    }
-    .news-row {
-        grid-template-columns: 64px minmax(0,1fr);
-        gap: 13px;
-    }
-    .career-strip {
-        grid-template-columns: repeat(2,minmax(0,1fr));
-        gap: 30px;
-    }
-    .publication {
-        grid-template-columns: 23px minmax(0,1fr);
-        gap: 9px;
-    }
-    .publication h3 {
-        font-size: 18px;
-    }
-    .social-links {
-        gap: 12px 18px;
-    }
-}
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-    *,*::before,*::after {
-        transition: none !important;
-        animation: none !important;
-    }
-}
-/* Layout adapted from al-folio. Original MIT notice: licenses/al-folio-LICENSE.txt. */
-body.academic {
-    font: 400 16px/1.7 Roboto,Arial,sans-serif;
-    color: var(--text-color);
-    background: var(--page-bg);
-    padding: 0;
-}
-.academic .top-nav {
-    max-width: 930px;
-    margin: 0 auto;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--divider-color);
-    font-size: 14px;
-}
-.academic .wordmark {
     font-size: 19px;
     font-weight: 500;
 }
-.academic .wordmark b {
+.wordmark b {
     font-weight: inherit;
 }
 .academic-main {
     max-width: 930px;
     margin: 36px auto 40px;
 }
-.academic h1 {
+h1 {
     font-size: 43px;
-    line-height: 1.2;
     letter-spacing: -1.2px;
     font-weight: 300;
     margin: 0 0 10px;
 }
-.academic h1 strong {
+h1 strong {
     font-weight: 700;
 }
-.academic h1 span {
+h1 span {
     font-size: 23px;
     margin-left: 15px;
     color: var(--muted-color);
     font-weight: 300;
     letter-spacing: 0;
 }
-.academic .subtitle {
+h2 {
+    font-size: 27px;
+    font-weight: 300;
+    letter-spacing: -.5px;
+    margin: 24px 0 8px;
+}
+.subtitle {
     margin: 0 0 8px;
     font-size: 17px;
 }
-.academic .research-line {
+.subtitle a {
+    font-weight: 500;
+}
+.research-line {
     color: var(--muted-color);
     font-size: 13px;
     margin: 0;
@@ -441,7 +281,7 @@ body.academic {
     width: 238px;
     margin: 0 0 25px 36px;
 }
-.academic-profile .portrait {
+.portrait {
     width: 100%;
     height: auto;
     display: block;
@@ -468,66 +308,82 @@ body.academic {
     margin-top: 30px;
     display: flow-root;
 }
-.academic .biography p:last-child {
+.biography p {
+    margin: 0 0 1.15em;
+}
+.biography p:last-child {
     margin-bottom: 0;
 }
-.academic a,
-.academic .publication h3 a {
-    color: var(--link-color);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: .18em;
-    text-decoration-skip-ink: auto;
+.biography strong {
+    color: var(--emphasis-color);
+    font-weight: 600;
 }
-.academic a:hover,
-.academic a:focus-visible {
-    color: var(--link-color);
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
+.biography a strong {
+    color: inherit;
 }
-.academic h2 {
-    font-size: 27px;
-    font-weight: 300;
-    letter-spacing: -.5px;
-    margin: 24px 0 8px;
-}
-.academic .news-row {
+.news-row {
+    display: grid;
+    grid-template-columns: 90px minmax(0,1fr);
+    gap: 22px;
     padding: 4px 0;
     font-size: 16px;
     line-height: 1.45;
 }
-.academic .news-row a {
+.news-row time {
+    color: var(--muted-color);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+}
+.news-row div {
+    min-width: 0;
+}
+.news-row a {
     font: inherit;
 }
-.academic .news-row time {
-    color: var(--muted-color);
+.news-row strong {
+    color: var(--emphasis-color);
 }
-.academic .publication {
+.heading-icon {
+    font-size: .8em;
+}
+.news-indicator {
+    display: inline-block;
+    width: 28px;
+    height: 11px;
+    margin-right: 3px;
+    vertical-align: baseline;
+}
+.publication {
+    display: grid;
+    grid-template-columns: 35px minmax(0,1fr);
+    gap: 18px;
     padding: 12px 0;
-    border-bottom: 0;
 }
-.academic .publication:first-child {
+.publication:first-child {
     padding-top: 4px;
 }
-.academic .publication:last-child {
-    padding-bottom: 12px;
-}
-.academic .paper-index {
+.paper-index {
     color: var(--muted-color);
+    font-size: 12px;
     font-weight: 500;
+    padding-top: 5px;
 }
-.academic .publication h3 {
+.publication h3 {
+    margin: 0 0 5px;
+    line-height: 1.45;
     font-size: 18px;
     font-weight: 500;
-    margin-bottom: 5px;
 }
-.academic .authors {
+.authors {
     color: var(--muted-color);
+    font-size: 13px;
+    line-height: 1.7;
 }
-.academic .paper-notes {
-    color: var(--muted-color);
+.authors .thisauthor {
+    color: var(--text-color);
+    font-weight: 600;
 }
-.academic .paper-meta {
+.paper-meta {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
@@ -536,33 +392,10 @@ body.academic {
     font-size: 12px;
     line-height: 1.6;
 }
-.academic .paper-meta .paper-notes,
-.academic .paper-meta .paper-links {
+.paper-links {
     display: contents;
 }
-.academic .news-row strong {
-    color: var(--emphasis-color);
-}
-.academic .authors .thisauthor {
-    color: var(--text-color);
-}
-.academic .subtitle a {
-    font-weight: 500;
-}
-.academic .biography .focus-primary,
-.academic .biography strong {
-    color: var(--emphasis-color);
-    font-weight: 600;
-}
-.academic .biography a .focus-primary,
-.academic .biography a strong {
-    color: inherit;
-}
-.academic .biography .focus-secondary {
-    color: inherit;
-    font-weight: 400;
-}
-.academic .paper-venue {
+.paper-venue {
     display: inline-flex;
     align-items: baseline;
     gap: 5px;
@@ -572,130 +405,130 @@ body.academic {
     line-height: 1.45;
     white-space: nowrap;
 }
-.academic .paper-contribution {
+.paper-contribution {
     color: var(--muted-color);
     font-size: 11px;
 }
-.academic .paper-links a {
+.paper-links a {
     border: 1px solid var(--link-border);
     border-radius: 3px;
     padding: 2px 8px;
     min-height: 28px;
-    color: var(--link-color);
     background: var(--link-soft);
     font-size: 12px;
     transition: background-color .15s ease, border-color .15s ease;
 }
-.academic .paper-links a:hover,
-.academic .paper-links a:focus-visible {
-    color: var(--link-color);
+.paper-links a:hover, .paper-links a:focus-visible {
     background: var(--link-hover);
     border-color: currentColor;
-    text-decoration: underline;
 }
-.academic .paper-links a:focus-visible {
+.paper-links a:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 2px;
 }
-.academic .profile-social a, .academic .social-links a, .academic .paper-links a {
+.profile-social a, .paper-links a {
     display: inline-flex;
     align-items: center;
     gap: 5px;
     white-space: nowrap;
 }
-.academic .heading-icon {
-    font-size: .8em;
-}
-.academic .news-indicator {
-    display: inline-block;
-    width: 28px;
-    height: 11px;
-    margin-right: 3px;
-    vertical-align: baseline;
-}
-.academic .career-strip {
-    border-top: 0;
-    padding-top: 0;
+.career-strip {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 24px;
     margin: 24px 0 20px;
+    text-align: center;
 }
-.academic .career-item {
+.career-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 3px;
 }
-.academic .career-item strong {
+.career-item strong {
     font-size: 13px;
+    font-weight: 500;
 }
-.academic .logo-box {
+.career-item span {
+    font-size: 11px;
+}
+.logo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 64px;
-    margin-bottom: 0;
-    align-items: center;
     overflow: hidden;
     background: #ffffff;
     border-radius: 6px;
 }
-.academic .logo-box a {
+.logo-box a {
     display: flex;
     align-items: center;
 }
-.academic .logo-box img {
+.logo-box img {
     display: block;
     flex-shrink: 0;
     width: 160px;
     height: auto;
+    object-fit: contain;
     object-position: center;
 }
-.academic .logo-alibaba img {
+.logo-alibaba img {
     width: 190px;
 }
-.academic .logo-kuaishou img {
+.logo-kuaishou img {
     width: 126px;
 }
-.academic .logo-stepfun img {
+.logo-stepfun img {
     max-width: calc(100% - 16px);
 }
-.academic .career-item .logo-tiktok img {
+.logo-tiktok img {
     width: 54px;
 }
-.academic .credit {
+.credit {
+    padding: 28px 20px;
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.8;
     border-top: 1px solid var(--divider-color);
     color: var(--muted-color);
-}
-.academic .credit a {
-    text-decoration: underline;
 }
 @media (max-width: 1020px) {
     .academic-main {
         margin: 32px 6vw;
     }
-    .academic .top-nav {
+    .top-nav {
         margin: 0 6vw;
     }
 }
 @media (max-width: 700px) {
-    .academic .top-nav {
+    .top-nav {
         padding: 10px 0;
         flex-wrap: wrap;
-        align-items: center;
         gap: 6px 16px;
     }
-    .academic .top-nav nav {
+    .top-nav nav {
         gap: 6px 16px;
     }
-    .academic .top-nav nav a {
+    .top-nav nav a {
         font-size: 13px;
+    }
+    .top-nav .wordmark {
+        display: none;
     }
     .academic-main {
         margin-top: 24px;
     }
-    .academic .top-nav .wordmark {
-        display:none;
-    }
-    .academic h1 {
+    h1 {
         font-size: 36px;
     }
-    .academic h1 span {
+    h1 span {
         font-size: 19px;
         margin-left: 10px;
+    }
+    h2 {
+        font-size: 25px;
     }
     .academic-profile {
         float: none;
@@ -705,7 +538,7 @@ body.academic {
         grid-template-columns: 90px minmax(0,1fr);
         gap: 0 20px;
     }
-    .academic-profile .portrait {
+    .portrait {
         grid-row: 1 / 3;
         height: 104px;
         width: 90px;
@@ -714,38 +547,53 @@ body.academic {
     .profile-caption {
         margin-top: 2px;
         align-self: end;
-        font-size: 12px;
     }
     .profile-social {
-        font-size: 13px;
         margin-top: 6px;
         align-self: start;
     }
-    .profile-social a,
-    .academic .paper-links a {
+    .profile-social a, .paper-links a {
         min-height: 36px;
     }
-    .academic .biography {
+    .biography {
         font-size: 15px;
     }
-    .academic h2 {
-        font-size: 25px;
+    .news-row {
+        grid-template-columns: 64px minmax(0,1fr);
+        gap: 13px;
+    }
+    .publication {
+        grid-template-columns: 23px minmax(0,1fr);
+        gap: 9px;
+    }
+    .career-strip {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 30px;
     }
 }
 @media (max-width: 380px) {
     .academic-profile {
-        grid-template-columns: 72px minmax(0, 1fr);
+        grid-template-columns: 72px minmax(0,1fr);
         column-gap: 16px;
     }
-    .academic-profile .portrait {
+    .portrait {
         width: 72px;
         height: auto;
     }
-    .academic .paper-venue {
+    .paper-venue {
         white-space: normal;
     }
-    .academic .logo-alibaba img {
+    .logo-alibaba img {
         width: 160px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
     }
 }
 @media print {
@@ -956,31 +804,31 @@ body.academic {
                     </div>
                 </aside>
                 <div class="biography">
-                    <p>At <a class="in-text" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a>, I lead an <span class="focus-secondary">AI Infrastructure team</span> and have systematically strengthened its organization and engineering capabilities.
-                    I led an <span class="focus-secondary">inference architecture overhaul</span> that substantially improved production efficiency, and unified <span class="focus-secondary">TikTok’s post-training frameworks</span>.
-                    Our systems support training and inference for <strong class="focus-primary">over a thousand LLMs and VLMs</strong>, handling TikTok’s massive real-world production traffic.
-                    By combining team development with <span class="focus-secondary">agentic engineering and recursive self-improvement (RSI)</span>, we expanded our capacity for inference optimization <strong class="focus-primary">fivefold</strong>.</p>
-                    <p>Previously, I <strong class="focus-primary">founded and led</strong> <a class="in-text" href="https://www.stepfun.com/" target="_blank" rel="noopener noreferrer">StepFun</a>’s pretraining team, reporting to <a class="in-text" href="https://scholar.google.com/citations?user=yuB-cfoAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Xiangyu Zhang</a>.
-                    I led <span class="focus-secondary">pretraining and model architecture design</span> for <a class="in-text" href="https://huggingface.co/stepfun-ai/step3" target="_blank" rel="noopener noreferrer">Step3</a>, with hands-on responsibility spanning <span class="focus-secondary">training data, core training code, and the main training runs</span>.
-                    I also led <a class="in-text" href="https://mp.weixin.qq.com/s/LbczNQ-3yRbA1o5BQ9wfkg" target="_blank" rel="noopener noreferrer">Step2-mini</a> end to end, from pretraining through post-training and deployment, and contributed to <a class="in-text" href="https://huggingface.co/stepfun-ai/Step-3.5-Flash" target="_blank" rel="noopener noreferrer">Step3.5-Flash</a>’s architecture.
-                    My research included the <strong class="focus-primary">Predictable Scale series</strong>—<a class="in-text" href="https://step-law.github.io/" target="_blank" rel="noopener noreferrer">Step Law</a> and <a class="in-text" href="https://farseer-scaling-law.github.io/" target="_blank" rel="noopener noreferrer">Farseer</a>—on hyperparameter scaling and predicting large-model performance.
-                    Alongside these papers, we open-sourced <a class="in-text" href="https://huggingface.co/StepLaw" target="_blank" rel="noopener noreferrer"><strong class="focus-primary">thousands of research models</strong></a> to support reproducible pretraining research.</p>
-                    <p>Prior to StepFun, I was the LLM Lead at <a class="in-text" href="https://www.alibabagroup.com/en-US/" target="_blank" rel="noopener noreferrer">Alibaba International</a> in 2023,
-                    reporting to <a class="in-text" href="https://www.linkedin.com/in/kaifu-zhang-54624514/?originalSubdomain=cn" target="_blank" rel="noopener noreferrer">Kaifu Zhang</a>.
-                    I managed the <span class="focus-secondary">full model lifecycle</span>,
+                    <p>At <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a>, I lead an AI Infrastructure team and have systematically strengthened its organization and engineering capabilities.
+                    I led an inference architecture overhaul that substantially improved production efficiency, and unified TikTok’s post-training frameworks.
+                    Our systems support training and inference for <strong>over a thousand LLMs and VLMs</strong>, handling TikTok’s massive real-world production traffic.
+                    By combining team development with agentic engineering and recursive self-improvement (RSI), we expanded our capacity for inference optimization <strong>fivefold</strong>.</p>
+                    <p>Previously, I <strong>founded and led</strong> <a href="https://www.stepfun.com/" target="_blank" rel="noopener noreferrer">StepFun</a>’s pretraining team, reporting to <a href="https://scholar.google.com/citations?user=yuB-cfoAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Xiangyu Zhang</a>.
+                    I led pretraining and model architecture design for <a href="https://huggingface.co/stepfun-ai/step3" target="_blank" rel="noopener noreferrer">Step3</a>, with hands-on responsibility spanning training data, core training code, and the main training runs.
+                    I also led <a href="https://mp.weixin.qq.com/s/LbczNQ-3yRbA1o5BQ9wfkg" target="_blank" rel="noopener noreferrer">Step2-mini</a> end to end, from pretraining through post-training and deployment, and contributed to <a href="https://huggingface.co/stepfun-ai/Step-3.5-Flash" target="_blank" rel="noopener noreferrer">Step3.5-Flash</a>’s architecture.
+                    My research included the <strong>Predictable Scale series</strong>—<a href="https://step-law.github.io/" target="_blank" rel="noopener noreferrer">Step Law</a> and <a href="https://farseer-scaling-law.github.io/" target="_blank" rel="noopener noreferrer">Farseer</a>—on hyperparameter scaling and predicting large-model performance.
+                    Alongside these papers, we open-sourced <a href="https://huggingface.co/StepLaw" target="_blank" rel="noopener noreferrer"><strong>thousands of research models</strong></a> to support reproducible pretraining research.</p>
+                    <p>Prior to StepFun, I was the LLM Lead at <a href="https://www.alibabagroup.com/en-US/" target="_blank" rel="noopener noreferrer">Alibaba International</a> in 2023,
+                    reporting to <a href="https://www.linkedin.com/in/kaifu-zhang-54624514/?originalSubdomain=cn" target="_blank" rel="noopener noreferrer">Kaifu Zhang</a>.
+                    I managed the full model lifecycle,
                     from pre-training and post-training to driving the core LLM technology for commercial initiatives
-                    <a class="in-text" href="https://www.aidc-ai.com/" target="_blank" rel="noopener noreferrer"> such as Aidge </a>.
+                    <a href="https://www.aidc-ai.com/" target="_blank" rel="noopener noreferrer"> such as Aidge </a>.
                     I led the team that delivered multilingual large models <strong>Marco-7B</strong> and <strong>Marco-13B</strong>,
                     and pioneered their path to commercial viability.</p>
-                    <p>My earlier experience at Taobao and Kuaishou focused on <span class="focus-secondary">personalized recommendation and advertising</span>.
+                    <p>My earlier experience at Taobao and Kuaishou focused on personalized recommendation and advertising.
                     I specialized in deploying deep learning at scale in consumer-facing (<em>ToC</em>) products
                     to drive measurable business impact and boost profitability.
-                    In the same timeframe, I developed the classic personalized retrieval algorithm <strong>PDN</strong> (<a class="in-text" href="https://dl.acm.org/doi/abs/10.1145/3404835.3462878" target="_blank" rel="noopener noreferrer">paper</a>).</p>
+                    In the same timeframe, I developed the classic personalized retrieval algorithm <strong>PDN</strong> (<a href="https://dl.acm.org/doi/abs/10.1145/3404835.3462878" target="_blank" rel="noopener noreferrer">paper</a>).</p>
                     <p>After graduating from Xidian University,
-                    I began my career in  <a class="in-text" href="https://www.antgroup.com/en/" target="_blank" rel="noopener noreferrer">Ant Group</a>'s Infrastructure(Infra) team,
+                    I began my career in  <a href="https://www.antgroup.com/en/" target="_blank" rel="noopener noreferrer">Ant Group</a>'s Infrastructure(Infra) team,
                     where I spent four years with a focus on AI Infra.
                     A key achievement from this period was developing
-                    the <span class="focus-secondary">distributed training framework</span> <a class="in-text" href="https://arxiv.org/abs/2104.10569" target="_blank" rel="noopener noreferrer"> <strong class="focus-primary">GraphTheta</strong> </a> from scratch,
+                    the distributed training framework <a href="https://arxiv.org/abs/2104.10569" target="_blank" rel="noopener noreferrer"> <strong>GraphTheta</strong> </a> from scratch,
                     one of the early frameworks in China to support thousand-machine parallel training.</p>
                 </div>
             </section>
@@ -1026,11 +874,11 @@ body.academic {
                             <div class="paper-meta">
                                 <span class="paper-venue"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#trophy"></use></svg> ICLR 2026 Oral</span>
                                 <div class="paper-links">
-                                    <a aria-label="PDF: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" class="resource-pdf" href="slides/moe-equal-resources-camera-ready.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
-                                    <a aria-label="Models: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" class="resource-models" href="https://huggingface.co/kamanphoebe/moe_surpass_dense" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Models</a>
-                                    <a aria-label="Homepage: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" class="resource-homepage" href="https://kamanphoebe.github.io/moe-surpass-dense.github.io/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#home"></use></svg> Homepage</a>
-                                    <a aria-label="Poster: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" class="resource-presentation" href="slides/moe-equal-resources-poster.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> Poster</a>
-                                    <a aria-label="Slides: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" class="resource-presentation" href="slides/moe-equal-resources-slides.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-powerpoint-o"></use></svg> Slides</a>
+                                    <a aria-label="PDF: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="slides/moe-equal-resources-camera-ready.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
+                                    <a aria-label="Models: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="https://huggingface.co/kamanphoebe/moe_surpass_dense" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Models</a>
+                                    <a aria-label="Homepage: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="https://kamanphoebe.github.io/moe-surpass-dense.github.io/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#home"></use></svg> Homepage</a>
+                                    <a aria-label="Poster: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="slides/moe-equal-resources-poster.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> Poster</a>
+                                    <a aria-label="Slides: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="slides/moe-equal-resources-slides.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-powerpoint-o"></use></svg> Slides</a>
                                 </div>
                                 <span class="paper-contribution"> (* = Equal Contribution)</span>
                             </div>
@@ -1046,12 +894,12 @@ body.academic {
                             <div class="paper-meta">
                                 <span class="paper-venue"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#trophy"></use></svg> NeurIPS 2025 Spotlight</span>
                                 <div class="paper-links">
-                                    <a aria-label="PDF: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" class="resource-pdf" href="slides/predictable-scale-part-ii-camera-ready.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
-                                    <a aria-label="Github: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" class="resource-code" href="https://github.com/Farseer-Scaling-Law/Farseer" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github-alt"></use></svg> Github</a>
-                                    <a aria-label="Models: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" class="resource-models" href="https://huggingface.co/Farseer-Scaling-Law" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Models</a>
-                                    <a aria-label="WanDB: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" class="resource-experiment" href="https://wandb.ai/billzid/Farseer?nw=nwuserbillzid" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#flask"></use></svg> WanDB</a>
-                                    <a aria-label="Homepage: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" class="resource-homepage" href="https://farseer-scaling-law.github.io/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#home"></use></svg> Homepage</a>
-                                    <a aria-label="Poster: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" class="resource-presentation" href="slides/predictable-scale-part-ii-poster.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> Poster</a>
+                                    <a aria-label="PDF: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="slides/predictable-scale-part-ii-camera-ready.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
+                                    <a aria-label="Github: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="https://github.com/Farseer-Scaling-Law/Farseer" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github-alt"></use></svg> Github</a>
+                                    <a aria-label="Models: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="https://huggingface.co/Farseer-Scaling-Law" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Models</a>
+                                    <a aria-label="WanDB: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="https://wandb.ai/billzid/Farseer?nw=nwuserbillzid" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#flask"></use></svg> WanDB</a>
+                                    <a aria-label="Homepage: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="https://farseer-scaling-law.github.io/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#home"></use></svg> Homepage</a>
+                                    <a aria-label="Poster: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="slides/predictable-scale-part-ii-poster.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> Poster</a>
                                 </div>
                                 <span class="paper-contribution"> (* = Equal Contribution)</span>
                             </div>
@@ -1066,12 +914,12 @@ body.academic {
                             <div class="authors"><span class="thisauthor">Houyi Li*</span>, Wenzhen Zheng*, Qiufeng Wang, Hanshan Zhang, Zili Wang, Shijie Xuyang, Yuantao Fan, Zhenyu Ding, Haoying Wang, Ning Ding, Shuigeng Zhou, Xiangyu Zhang, Daxin Jiang</div>
                             <div class="paper-meta">
                                 <div class="paper-links">
-                                    <a aria-label="PDF: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" class="resource-pdf" href="https://arxiv.org/abs/2503.04715" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
-                                    <a aria-label="Github: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" class="resource-code" href="https://github.com/step-law/steplaw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github-alt"></use></svg> Github</a>
-                                    <a aria-label="Models: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" class="resource-models" href="https://huggingface.co/StepLaw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Models</a>
-                                    <a aria-label="WanDB: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" class="resource-experiment" href="https://wandb.ai/billzid/predictable-scale" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#flask"></use></svg> WanDB</a>
-                                    <a aria-label="Homepage: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" class="resource-homepage" href="https://step-law.github.io/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#home"></use></svg> Homepage</a>
-                                    <a aria-label="Media (Chinese): Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" class="resource-media" href="https://mp.weixin.qq.com/s/atA8y-vF-7wsUcXKoz5oFw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Media (Chinese)</a>
+                                    <a aria-label="PDF: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://arxiv.org/abs/2503.04715" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
+                                    <a aria-label="Github: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://github.com/step-law/steplaw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github-alt"></use></svg> Github</a>
+                                    <a aria-label="Models: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://huggingface.co/StepLaw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Models</a>
+                                    <a aria-label="WanDB: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://wandb.ai/billzid/predictable-scale" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#flask"></use></svg> WanDB</a>
+                                    <a aria-label="Homepage: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://step-law.github.io/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#home"></use></svg> Homepage</a>
+                                    <a aria-label="Media (Chinese): Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://mp.weixin.qq.com/s/atA8y-vF-7wsUcXKoz5oFw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Media (Chinese)</a>
                                 </div>
                                 <span class="paper-contribution"> (* = Equal Contribution)</span>
                             </div>
@@ -1086,10 +934,10 @@ body.academic {
                             <div class="authors">The StepFun Team (<span class="thisauthor">Houyi Li</span>: Core Model Architecture Contributor) (Technical Report)</div>
                             <div class="paper-meta">
                                 <div class="paper-links">
-                                    <a aria-label="PDF: Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" class="resource-pdf" href="https://arxiv.org/pdf/2507.19427" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
-                                    <a aria-label="Github: Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" class="resource-code" href="https://github.com/stepfun-ai/Step3" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github-alt"></use></svg> Github</a>
-                                    <a aria-label="Huggingface: Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" class="resource-models" href="https://huggingface.co/collections/stepfun-ai/step3-688a3d652dbb45d868f9d42d" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Huggingface</a>
-                                    <a aria-label="Media (Chinese): Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" class="resource-media" href="https://mp.weixin.qq.com/s/t9HAQG6WD3BPwg95d4Y8Fw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Media (Chinese)</a>
+                                    <a aria-label="PDF: Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" href="https://arxiv.org/pdf/2507.19427" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
+                                    <a aria-label="Github: Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" href="https://github.com/stepfun-ai/Step3" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github-alt"></use></svg> Github</a>
+                                    <a aria-label="Huggingface: Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" href="https://huggingface.co/collections/stepfun-ai/step3-688a3d652dbb45d868f9d42d" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Huggingface</a>
+                                    <a aria-label="Media (Chinese): Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" href="https://mp.weixin.qq.com/s/t9HAQG6WD3BPwg95d4Y8Fw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Media (Chinese)</a>
                                 </div>
                             </div>
                         </div>
@@ -1104,8 +952,8 @@ body.academic {
                             <div class="paper-meta">
                                 <span class="paper-venue"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#trophy"></use></svg> ACL 2025 </span>
                                 <div class="paper-links">
-                                    <a aria-label="PDF: Multi-matrix Factorization Attention" class="resource-pdf" href="https://arxiv.org/pdf/2412.19255" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
-                                    <a aria-label="Media (Chinese): Multi-matrix Factorization Attention" class="resource-media" href="https://mp.weixin.qq.com/s/q1HCHpzT665BeL54dNVTsA" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Media (Chinese)</a>
+                                    <a aria-label="PDF: Multi-matrix Factorization Attention" href="https://arxiv.org/pdf/2412.19255" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
+                                    <a aria-label="Media (Chinese): Multi-matrix Factorization Attention" href="https://mp.weixin.qq.com/s/q1HCHpzT665BeL54dNVTsA" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Media (Chinese)</a>
                                 </div>
                                 <span class="paper-contribution"> (* = Equal Contribution)</span>
                             </div>
@@ -1121,8 +969,8 @@ body.academic {
                             <div class="paper-meta">
                                 <span class="paper-venue"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#trophy"></use></svg> SIGIR 2021 </span>
                                 <div class="paper-links">
-                                    <a aria-label="PDF: Path-based Deep Network for Candidate Item Matching in Recommenders" class="resource-pdf" href="https://arxiv.org/abs/2105.08246" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
-                                    <a aria-label="Media (Chinese): Path-based Deep Network for Candidate Item Matching in Recommenders" class="resource-media" href="https://mp.weixin.qq.com/s/NznGxYghZZI-h_gnE2cu3A" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Media (Chinese)</a>
+                                    <a aria-label="PDF: Path-based Deep Network for Candidate Item Matching in Recommenders" href="https://arxiv.org/abs/2105.08246" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
+                                    <a aria-label="Media (Chinese): Path-based Deep Network for Candidate Item Matching in Recommenders" href="https://mp.weixin.qq.com/s/NznGxYghZZI-h_gnE2cu3A" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Media (Chinese)</a>
                                 </div>
                             </div>
                         </div>
@@ -1136,7 +984,7 @@ body.academic {
                             <div class="authors">Yongchao Liu*, <span class="thisauthor">Houyi Li*</span>, Guowei Zhang, Xintan Zeng, Yongyong Li, Bin Huang, Peng Zhang, Zhao Li, Xiaowei Zhu, Changhua He, Wenguang Chen</div>
                             <div class="paper-meta">
                                 <div class="paper-links">
-                                    <a aria-label="PDF: GraphTheta: A Distributed Graph Neural Network Learning System With Flexible Training Strategy" class="resource-pdf" href="https://arxiv.org/pdf/2104.10569" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
+                                    <a aria-label="PDF: GraphTheta: A Distributed Graph Neural Network Learning System With Flexible Training Strategy" href="https://arxiv.org/pdf/2104.10569" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
                                 </div>
                                 <span class="paper-contribution"> (* = Equal Contribution)</span>
                             </div>

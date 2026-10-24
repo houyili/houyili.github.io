@@ -37,9 +37,11 @@ python3 scripts/sync-styles.py --check
 
 The first command checks canonical URLs, verification, crawl access, identity references, paper coverage, sitemaps and local assets. The second also checks the deployed file hashes and public HTTP responses. GitHub Actions runs the local checks for relevant changes.
 
-The page embeds only `assets/style-2.css`; unused al-folio/Bootstrap and Font Awesome CSS are no longer delivered. The 12 visible icons retain their original outlines in a small SVG sprite instead of requiring the full icon font. Keep editing the source CSS, then run `python3 scripts/sync-styles.py`. Run `python3 scripts/sync-icons.py` after adding an icon from the bundled Font Awesome source. CI checks the embedded styles and SVG references. Compare desktop/mobile rendering and a fresh PageSpeed run after delivery changes.
+The page embeds only `assets/homepage.css`; unused template CSS, icon fonts, and duplicate assets have been removed. The 12 visible icons retain their original outlines in a small SVG sprite instead of requiring the full icon font. Keep editing the source CSS, then run `python3 scripts/sync-styles.py`. Maintain icon symbols directly in `assets/icons.svg` and retain their license in `assets/licenses/font-awesome-OFL.txt`. CI checks the embedded styles and SVG references. Compare desktop/mobile rendering and a fresh PageSpeed run after delivery changes.
 
 Theme colors follow `prefers-color-scheme` without JavaScript. An optional System/Light/Dark selector remembers an explicit override locally; blocked storage falls back safely. Both palettes retain blue underlined links and a contrasting red emphasis color. Verify both themes at narrow widths and keep the static biography and paper links accessible without scripts.
+
+`_config.yml` excludes maintenance docs, scripts, tests, instructions, and local artifacts from the published site. The live check verifies that representative maintenance URLs return 404. Keep these exclusions when changing deployment settings; do not add `.nojekyll`, which would bypass them.
 
 GitHub Pages serves `404.html` for missing paths. Its root-relative links lead visitors back to the homepage, research and open models. It is excluded from indexing and from the sitemap. The live check verifies an actual HTTP 404 instead of accepting a soft error page with status 200.
 

@@ -6,6 +6,7 @@ on:
     paths:
       - index.html
       - 404.html
+      - _config.yml
       - robots.txt
       - sitemap.*
       - assets/**
@@ -17,6 +18,7 @@ on:
     paths:
       - index.html
       - 404.html
+      - _config.yml
       - robots.txt
       - sitemap.*
       - assets/**

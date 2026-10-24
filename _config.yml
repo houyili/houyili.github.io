@@ -1,0 +1,12 @@
+# Keep maintenance files in Git without publishing them as website pages.
+exclude:
+  - AGENTS.md
+  - docs
+  - scripts
+  - tests
+  - tmp
+  - analytics-private
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock

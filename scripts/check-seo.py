@@ -6,6 +6,7 @@ from hashlib import sha256
 from html.parser import HTMLParser
 import json
 from pathlib import Path
+import re
 from urllib.parse import urljoin, urlsplit
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
@@ -16,6 +17,9 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://houyili.github.io/"
 FILES = ("index.html", "robots.txt", "sitemap.xml", "sitemap.txt", "404.html")
+# These URLs used to expose maintenance files through GitHub Pages.
+NON_PUBLIC_PATHS = ("AGENTS.html", "docs/analytics.html", "docs/search-visibility.html",
+                    "scripts/sync-styles.py", "tests/appearance.test.mjs")
 
 
 class Page(HTMLParser):
@@ -94,6 +98,15 @@ def check(files):
     assert set(robots.site_maps() or []) == {SITE + "sitemap.xml", SITE + "sitemap.txt"}
     ids = {attrs["id"] for _, attrs in page.elements if "id" in attrs}
     assets = set()
+    # Inline CSS and social previews are also assets, even though they have no src attribute.
+    for _, target in re.findall(r"url\(\s*(['\"]?)([^\s)]+?)\1\s*\)", files["index.html"]):
+        if not urlsplit(target).scheme and not target.startswith("//"):
+            assets.add(target)
+    for attrs in page.find("meta"):
+        if attrs.get("property") == "og:image" or attrs.get("name") == "twitter:image":
+            target = attrs.get("content", "")
+            assert target.startswith(SITE), "Social previews must use a deployed homepage image."
+            assets.add(target.removeprefix(SITE))
     for tag, attrs in page.elements:
         if tag == "img":
             assert "alt" in attrs, "Image alt text is missing."
@@ -127,13 +140,14 @@ def live_check(local):
             live[filename] = response.read().decode("utf-8")
             assert sha256(live[filename].encode()).digest() == sha256(local[filename].encode()).digest(), f"Live revision mismatch: {filename}"
     check(live)
-    try:
-        urlopen(SITE + "__missing-page-check__", timeout=20)
-    except HTTPError as error:
-        assert error.code == 404, "Missing pages must return HTTP 404."
-        assert error.read().decode("utf-8") == local["404.html"], "The custom recovery page is not deployed."
-    else:
-        raise AssertionError("A missing URL must not return HTTP 200 (soft 404).")
+    for path in ("__missing-page-check__", *NON_PUBLIC_PATHS):
+        try:
+            with urlopen(SITE + path, timeout=20):
+                raise AssertionError(f"This path must return HTTP 404: {path}")
+        except HTTPError as error:
+            assert error.code == 404, f"Expected HTTP 404: {path}"
+            assert error.read().decode("utf-8") == local["404.html"], "The custom recovery page is not deployed."
+    print("PASS: maintenance files are excluded from the public site and missing pages return the custom HTTP 404.")
     print("PASS: live pages return HTTP 200 and match this revision. Google indexing/ranking must be checked separately in Search Console.")
 
 
