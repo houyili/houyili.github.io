@@ -12,6 +12,8 @@ Preserve the Google verification tag and use the existing HTTPS URL-prefix prope
 
 `robots.txt`, `sitemap.xml` and `sitemap.txt` describe the same single canonical homepage. Exclude previews, query variants and the error page. For sitemap errors, check HTTP status, crawl access and syntax; retain unresolved Google processing as pending when site-side checks pass. The 404 page must return HTTP 404 and link back to useful sections.
 
+After a successful Pages build, the SEO workflow checks the deployed revision automatically. It rejects redirects, incorrect content types, indexing-blocking headers and different responses to a Googlebot user agent. A user-agent check detects filtering only; use Search Console's live test to verify Google's actual fetch and inspect its response body and headers. Also check the cached robots.txt, manual actions and security reports. A generic sitemap error without further detail does not establish a website bug or a specific Google-side cause.
+
 Keep English/Chinese names attached to one identity; this page does not need invented language alternatives. Validate schema changes with Google's Rich Results Test or Search Console. Use Search Console's Performance report for impressions, clicks and rankings; Lighthouse scores alone establish none of these.
 
 ## Visitor analytics

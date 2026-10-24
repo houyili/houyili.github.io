@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 import re
 from urllib.parse import urljoin, urlsplit
-from urllib.request import Request, urlopen
+from urllib.request import Request, urlopen, build_opener, HTTPRedirectHandler
 from urllib.error import HTTPError
 from urllib.robotparser import RobotFileParser
 import xml.etree.ElementTree as ET
@@ -17,6 +17,13 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://houyili.github.io/"
 FILES = ("index.html", "robots.txt", "sitemap.xml", "sitemap.txt", "404.html")
+CONTENT_TYPES = {
+    "index.html": {"text/html"},
+    "robots.txt": {"text/plain"},
+    "sitemap.xml": {"application/xml", "text/xml"},
+    "sitemap.txt": {"text/plain"},
+    "404.html": {"text/html"},
+}
 # Maintenance files must not be published as website content.
 NON_PUBLIC_PATHS = ("AGENTS.html", "docs/maintenance.html",
                     "scripts/sync-styles.py", "tests/appearance.test.mjs")
@@ -87,6 +94,7 @@ def check(files):
 
     sitemap = ET.fromstring(files["sitemap.xml"])
     ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    assert sitemap.tag == "{" + ns["sm"] + "}urlset", "Invalid sitemap root or namespace."
     locations = [node.text for node in sitemap.findall("sm:url/sm:loc", ns)]
     assert locations == [SITE], "The sitemap must contain only this homepage's canonical URL."
     assert files["sitemap.txt"].splitlines() == locations, "Text and XML sitemaps differ."
@@ -97,7 +105,9 @@ def check(files):
     robots = RobotFileParser()
     robots.parse(files["robots.txt"].splitlines())
     assert set(robots.site_maps() or []) == {SITE + "sitemap.xml", SITE + "sitemap.txt"}
-    ids = {attrs["id"] for _, attrs in page.elements if "id" in attrs}
+    all_ids = [attrs["id"] for _, attrs in page.elements if "id" in attrs]
+    ids = set(all_ids)
+    assert len(ids) == len(all_ids), "Duplicate section IDs make navigation ambiguous."
     assets = set()
     assets.add(person["image"].removeprefix(SITE))
     # Inline CSS and social previews are also assets, even though they have no src attribute.
@@ -135,19 +145,46 @@ def check(files):
     missing = Page(files["404.html"])
     assert missing.find("meta", name="robots", content="noindex, follow"), "Do not index the error page."
     assert missing.find("a", href="/") and missing.find("a", href="/#publications"), "The error page must lead back to the profile and research."
+    for attrs in missing.find("a"):
+        target = urlsplit(urljoin(SITE, attrs.get("href", "")))
+        if target.netloc == urlsplit(SITE).netloc and target.path == "/" and target.fragment:
+            assert target.fragment in ids, f"Broken recovery link: {attrs['href']}"
     print("PASS: canonical, Google verification, crawl access, identity graph, paper coverage, sitemaps and local assets.")
+
+
+class NoRedirect(HTTPRedirectHandler):
+    def redirect_request(self, request, response, code, message, headers, new_url):
+        # Search Console expects the submitted sitemap URL itself to be fetchable.
+        return None
+
+
+def fetch_live(opener, filename, user_agent):
+    url = SITE if filename == "index.html" else SITE + filename
+    request = Request(url, headers={"User-Agent": user_agent})
+    try:
+        with opener.open(request, timeout=20) as response:
+            assert response.status == 200, f"HTTP {response.status}: {url} ({user_agent})"
+            mime = response.headers.get_content_type()
+            assert mime in CONTENT_TYPES[filename], f"Unexpected content type {mime}: {url}"
+            directives = ",".join(response.headers.get_all("X-Robots-Tag", [])).lower()
+            if filename != "404.html":
+                assert not re.search(r"\b(noindex|none)\b", directives), f"Indexing blocked by HTTP header: {url}"
+            return response.read().decode("utf-8")
+    except HTTPError as error:
+        raise AssertionError(f"HTTP {error.code}: {url} ({user_agent}); direct HTTP 200 required") from error
 
 
 def live_check(local):
     live = {}
+    opener = build_opener(NoRedirect())
     for filename in FILES:
-        url = SITE if filename == "index.html" else SITE + filename
-        with urlopen(Request(url, headers={"User-Agent": "Homepage-SEO-Verification/1.0"}), timeout=20) as response:
-            assert response.status == 200 and response.url == url, f"Unexpected status or redirect: {url}"
-            assert "noindex" not in response.headers.get("X-Robots-Tag", "").lower(), f"Indexing blocked by HTTP header: {url}"
-            live[filename] = response.read().decode("utf-8")
-            assert sha256(live[filename].encode()).digest() == sha256(local[filename].encode()).digest(), f"Live revision mismatch: {filename}"
+        live[filename] = fetch_live(opener, filename, "Homepage-SEO-Verification/1.0")
+        assert sha256(live[filename].encode()).digest() == sha256(local[filename].encode()).digest(), f"Live revision mismatch: {filename}"
     check(live)
+    # This catches user-agent filtering; Google's actual network access still needs Search Console.
+    for filename in FILES[:-1]:
+        assert fetch_live(opener, filename, "Googlebot") == live[filename], f"Googlebot receives different content: {filename}"
+    print("PASS: correct response types, no redirects or indexing blocks, and matching Googlebot responses.")
     for path in ("__missing-page-check__", *NON_PUBLIC_PATHS):
         try:
             with urlopen(SITE + path, timeout=20):
