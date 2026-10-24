@@ -339,6 +339,9 @@ body.academic {
     margin-top: 30px;
     display: flow-root;
 }
+.academic .biography p:last-child {
+    margin-bottom: 0;
+}
 .academic a {
     color: #b509ac;
     text-decoration: none;
@@ -350,19 +353,25 @@ body.academic {
     font-size: 27px;
     font-weight: 300;
     letter-spacing: -.5px;
-    margin: 52px 0 15px;
+    margin: 24px 0 8px;
 }
 .academic .news-row {
-    padding: 7px 0;
-    font-size: 15px;
-    line-height: 1.65;
+    padding: 4px 0;
+    font-size: 16px;
+    line-height: 1.45;
+}
+.academic .news-row a {
+    font: inherit;
 }
 .academic .news-row time {
     color: #707070;
 }
 .academic .publication {
-    padding: 16px 0;
+    padding: 12px 0;
     border-bottom: 0;
+}
+.academic .publication:first-child {
+    padding-top: 4px;
 }
 .academic .publication:last-child {
     padding-bottom: 12px;
@@ -374,12 +383,26 @@ body.academic {
 .academic .publication h3 {
     font-size: 18px;
     font-weight: 500;
+    margin-bottom: 5px;
 }
 .academic .authors {
     color: #666;
 }
 .academic .paper-notes {
     color: #7e3c7b;
+}
+.academic .paper-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 5px 10px;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+.academic .paper-meta .paper-notes,
+.academic .paper-meta .paper-links {
+    display: contents;
 }
 .academic .paper-links a {
     --resource-color: #374151;
@@ -465,22 +488,30 @@ body.academic {
 }
 .academic .logo-box {
     width: 100%;
-    height: 80px;
+    height: 64px;
     margin-bottom: 0;
-    align-items: flex-end;
+    align-items: center;
+    overflow: hidden;
+}
+.academic .logo-box a {
+    display: flex;
+    align-items: center;
 }
 .academic .logo-box img {
     display: block;
-    width: 144px;
-    height: 80px;
-    object-position: center bottom;
+    flex-shrink: 0;
+    width: 160px;
+    height: auto;
+    object-position: center;
 }
-.academic .logo-box img[src$="kuai-log-2.jpeg"] {
-    /* Compensate for the white margin inside the original logo image. */
-    object-position: center calc(100% + 20px);
+.academic .logo-alibaba img {
+    width: 190px;
 }
-.academic .career-item:last-child .logo-box img {
-    width: 80px;
+.academic .logo-kuaishou img {
+    width: 126px;
+}
+.academic .career-item .logo-tiktok img {
+    width: 54px;
 }
 .academic .credit {
     border-top: 1px solid #eee;
