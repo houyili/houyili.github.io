@@ -257,6 +257,17 @@ section {
 }
 /* Layout adapted from al-folio. Original MIT notice: licenses/al-folio-LICENSE.txt. */
 body.academic {
+    --accent-primary: #3858a6;
+    --accent-primary-soft: #f0f3fa;
+    --accent-primary-border: #c5d0e8;
+    --accent-primary-hover: #e2e9f7;
+    --accent-secondary: #356b5b;
+    --accent-secondary-soft: #f0f6f3;
+    --accent-secondary-border: #caddd4;
+    --accent-secondary-hover: #e1ede7;
+    --global-theme-color: var(--accent-primary);
+    --global-hover-color: var(--accent-primary);
+
     font: 400 16px/1.7 Roboto,Arial,sans-serif;
     color: #252525;
     background: white;
@@ -273,7 +284,7 @@ body.academic {
     color: #555;
 }
 .academic .top-nav nav a:hover {
-    color: #b509ac;
+    color: var(--accent-primary);
 }
 .academic .wordmark {
     color: #222;
@@ -343,7 +354,7 @@ body.academic {
     margin-bottom: 0;
 }
 .academic a {
-    color: #b509ac;
+    color: var(--accent-secondary);
     text-decoration: none;
 }
 .academic a:hover {
@@ -377,7 +388,7 @@ body.academic {
     padding-bottom: 12px;
 }
 .academic .paper-index {
-    color: #b509ac;
+    color: var(--accent-primary);
     font-weight: 500;
 }
 .academic .publication h3 {
@@ -389,7 +400,7 @@ body.academic {
     color: #666;
 }
 .academic .paper-notes {
-    color: #7e3c7b;
+    color: var(--accent-secondary);
 }
 .academic .paper-meta {
     display: flex;
@@ -404,11 +415,47 @@ body.academic {
 .academic .paper-meta .paper-links {
     display: contents;
 }
+.academic .subtitle a,
+.academic .news-row a:first-of-type,
+.academic .news-row strong,
+.academic .authors .thisauthor {
+    color: var(--accent-primary);
+}
+.academic .subtitle a {
+    font-weight: 500;
+}
+.academic .biography .focus-primary,
+.academic .biography strong {
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+.academic .biography .focus-secondary {
+    color: var(--accent-secondary);
+    font-weight: 400;
+}
+.academic .research-line,
+.academic .profile-caption {
+    color: var(--accent-secondary);
+}
+.academic .paper-venue {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 5px;
+    color: var(--accent-primary);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.45;
+    white-space: nowrap;
+}
+.academic .paper-contribution {
+    color: #707070;
+    font-size: 11px;
+}
 .academic .paper-links a {
-    --resource-color: #374151;
-    --resource-bg: #f3f4f6;
-    --resource-border: #d5d9e0;
-    --resource-hover: #e5e7eb;
+    --resource-color: var(--accent-secondary);
+    --resource-bg: var(--accent-secondary-soft);
+    --resource-border: var(--accent-secondary-border);
+    --resource-hover: var(--accent-secondary-hover);
     border: 1px solid var(--resource-border);
     border-radius: 3px;
     padding: 1px 8px;
@@ -417,36 +464,12 @@ body.academic {
     font-size: 11px;
     transition: background-color .15s ease, border-color .15s ease;
 }
-.academic .paper-links .resource-pdf {
-    --resource-color: #a42e34;
-    --resource-bg: #fff2f1;
-    --resource-border: #ebc7c7;
-    --resource-hover: #fce2e0;
-}
+.academic .paper-links .resource-pdf,
 .academic .paper-links .resource-models {
-    --resource-color: #805900;
-    --resource-bg: #fff8e4;
-    --resource-border: #ead8a4;
-    --resource-hover: #ffedbd;
-}
-.academic .paper-links .resource-homepage {
-    --resource-color: #215d91;
-    --resource-bg: #eef6ff;
-    --resource-border: #c6daee;
-    --resource-hover: #dcecff;
-}
-.academic .paper-links .resource-presentation,
-.academic .paper-links .resource-media {
-    --resource-color: #76518b;
-    --resource-bg: #f7f1fc;
-    --resource-border: #ddcde9;
-    --resource-hover: #ece1f5;
-}
-.academic .paper-links .resource-experiment {
-    --resource-color: #24694f;
-    --resource-bg: #edf8f1;
-    --resource-border: #c4e1ce;
-    --resource-hover: #dcf0e4;
+    --resource-color: var(--accent-primary);
+    --resource-bg: var(--accent-primary-soft);
+    --resource-border: var(--accent-primary-border);
+    --resource-hover: var(--accent-primary-hover);
 }
 .academic .paper-links a:hover,
 .academic .paper-links a:focus-visible {
