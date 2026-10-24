@@ -39,6 +39,8 @@ The first command checks canonical URLs, verification, crawl access, identity re
 
 The page embeds its four original stylesheets, preserving order and rebasing font URLs. This removes four render-blocking fetches from the first visit; the tradeoff is a larger HTML response and no separate CSS cache for that page. Keep editing the source CSS under `assets/`, then run `python3 scripts/sync-styles.py`. CI checks that the embedded block matches the sources. Compare desktop/mobile rendering and a fresh PageSpeed run after delivery changes.
 
+The preloaded Roboto font uses `font-display: optional`. A cold or slow connection may keep the system sans-serif font for that visit rather than replacing visible text late and shifting paragraphs. Fast and cached visits retain Roboto. Do not change this to `swap` without checking layout shift in a cold-load test.
+
 After changing structured data, validate with Google's Rich Results Test or the Search Console live test. Keep authenticated reports/screenshots outside this public repository. Use the Performance report for clicks, impressions and query positions once it has enough data; a Lighthouse SEO score is a technical check, not a Google ranking.
 
 Official references: [ProfilePage markup](https://developers.google.com/search/docs/appearance/structured-data/profile-page), [sitemap formats](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap), [sitemap troubleshooting](https://support.google.com/webmasters/answer/7451001), [recrawl requests](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl).
