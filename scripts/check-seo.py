@@ -17,8 +17,8 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://houyili.github.io/"
 FILES = ("index.html", "robots.txt", "sitemap.xml", "sitemap.txt", "404.html")
-# These URLs used to expose maintenance files through GitHub Pages.
-NON_PUBLIC_PATHS = ("AGENTS.html", "docs/analytics.html", "docs/search-visibility.html",
+# Maintenance files must not be published as website content.
+NON_PUBLIC_PATHS = ("AGENTS.html", "docs/maintenance.html",
                     "scripts/sync-styles.py", "tests/appearance.test.mjs")
 
 

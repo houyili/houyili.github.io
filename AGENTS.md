@@ -1,62 +1,37 @@
-# Repository Guidelines
+# Homepage maintenance
 
-## Project Structure & Module Organization
+This is a static GitHub Pages homepage. Keep `main` as the only local and remote branch, and maintain only the current academic layout.
 
-This repository is a small static personal homepage intended for GitHub Pages-style hosting.
+## Sources and scope
 
-- `index.html` contains the full page content, layout, generated inline styles, metadata, and script tags.
-- `assets/homepage.css` is the single source for typography, colors, and responsive behavior. Keep presentation in CSS so the static page renders without JavaScript.
-- `assets/fonts/` contains the bundled Roboto font. The 12 homepage icons are maintained directly in `assets/icons.svg`; their license is in `assets/licenses/font-awesome-OFL.txt`.
-- `images/` stores profile, logo, favicon, and news indicator assets referenced by `index.html`.
-- `slides/` contains the linked papers, posters, and slides. Preserve public document URLs.
-- `_config.yml` excludes maintenance instructions, docs, scripts, tests, and local artifacts from GitHub Pages. These files remain in the repository.
+- `index.html` contains the biography, news, papers, metadata and generated inline CSS.
+- `assets/homepage.css` is the single stylesheet source. Run `python3 scripts/sync-styles.py` after editing it; never edit the generated block independently.
+- `assets/appearance.js` handles theme preferences; `assets/visitor-analytics.js` loads Statcounter. Keep content usable without JavaScript and analytics failures harmless.
+- Preserve referenced images, the Roboto font, SVG icons and licenses, plus all linked PDFs in `slides/`. A different image format used by social previews is not an unused duplicate.
+- `_config.yml` excludes maintenance files from publication. Do not add `.nojekyll`, which bypasses those exclusions.
 
-## Build, Test, and Development Commands
+Use plain HTML/CSS/JavaScript, four-space HTML/CSS indentation, semantic headings and image alt text. Prefer lowercase hyphenated asset names and relative paths. There are no framework, package-manager or installation dependencies.
 
-There is no package manager or dependency installation. Edit the static HTML and CSS sources directly. The homepage embeds `assets/homepage.css` to avoid render-blocking requests. Regenerate the embedded block after editing the source CSS. Keep only the current academic layout; do not add duplicate templates or vendor styles.
+## Verification
 
-- `python3 -m http.server 8000` starts a local static server from the repository root.
-- `git diff --check` checks for trailing whitespace and whitespace errors before committing.
-- `python3 scripts/sync-styles.py` refreshes the embedded styles after source CSS edits; use `--check` to detect stale output.
-- `node --test tests/appearance.test.mjs` checks stored theme preferences, system fallback, and blocked storage.
-- `node --test tests/visitor-analytics.test.mjs` exercises analytics failure, retry, privacy, and duplicate-load behavior.
-- `node scripts/check-analytics.mjs` checks the production integration; append `--live` after deployment to compare the public files.
-- `python3 scripts/check-seo.py` validates search visibility and sitemap consistency; append `--live` after deployment to compare public files.
-- `git ls-files` gives an inventory of tracked files when adding or removing assets.
+```sh
+python3 scripts/sync-styles.py --check
+python3 scripts/check-seo.py
+node --test tests/*.test.mjs
+node scripts/check-analytics.mjs
+git diff --check
+```
 
-Preview the site at `http://localhost:8000/` after starting the server.
+For local preview, run `python3 -m http.server 8000 --bind 127.0.0.1`. After deployment, append `--live` to the SEO and analytics checks to compare public files. For layout changes, verify desktop/mobile, both themes and the 380/700/1020px breakpoints. Keep the optional font loading policy unless cold-load layout shift is rechecked. Check browser errors after JavaScript changes. Use concise imperative commit subjects; describe changed behavior, checks and visual evidence in PRs.
 
-## Coding Style & Naming Conventions
+## Content, SEO and analytics
 
-Match the existing plain HTML/CSS/JavaScript style. Use 4-space indentation in HTML and CSS. Keep HTML attributes readable and prefer semantic `alt` text for images. Use existing class names; Bootstrap utilities are not loaded.
+Preserve approved biography wording, paper links, the H1/H2 hierarchy, canonical URL and Google verification tag. Keep visible content, social metadata and the Person/ProfilePage graph consistent. `sameAs` contains verified personal identities; papers belong in `hasPart`. Update `dateModified` and sitemap `lastmod` only for significant content/schema changes, using the actual edit date. Keep both sitemaps synchronized.
 
-For new assets, prefer lowercase, hyphen-separated filenames such as `stepfun-logo.png`. Keep image paths relative, for example `images/profile.png` or `assets/homepage.css`.
+Follow `docs/maintenance.md` for authenticated acceptance. A loaded analytics script is not proof of a stored visitor record, and a submitted sitemap is not proof of successful processing. Never present technical SEO scores as search rankings.
 
-## Testing Guidelines
+## Cleanup and privacy
 
-Analytics tests use Node.js's built-in test runner without additional dependencies. Validate changes manually in a browser at desktop and mobile widths. Check that image paths load, external links open in a new tab when appropriate, and the responsive sidebar behavior still works around the `700px` and `1020px` breakpoints, including the narrow `380px` adjustment. Verify both light and dark themes.
+Keep only final site assets and necessary maintenance files. Store verification output outside this public repository; retain a compact latest summary instead of repeated snapshots, template copies or raw operation logs. Preserve third-party license notices.
 
-When changing JavaScript, open the browser console and confirm there are no runtime errors.
-
-For analytics changes, run the analytics tests and integration check. Follow `docs/analytics.md` for authenticated backend acceptance. A loaded script is not proof of a stored visitor record; keep that check pending until verified. Keep raw visitor exports outside this public repository.
-
-## Commit & Pull Request Guidelines
-
-Keep `main` as the only local and remote branch for this homepage. Update the current academic layout in place; do not maintain parallel template variants or preview configurations in the repository.
-
-The current history uses short messages such as `minor` and `initial homepage`; prefer a concise but more descriptive imperative subject, for example `Update publication links` or `Refresh profile copy`.
-
-Pull requests should include a short summary, screenshots for visual changes, and the manual validation performed. Mention any changed external links, deployment settings, or newly added media files.
-
-## SEO Maintenance
-
-- Keep the page title, description, social previews, and `ProfilePage` / `Person` JSON-LD consistent with the visible biography.
-- Use `Person.sameAs` only for the author's own identity/profile pages, not papers, models, or team repositories. Research belongs in the profile page's `hasPart` entries.
-- Update `sitemap.xml` lastmod and the profile's `dateModified` when making significant content or structured-data changes; use the actual edit date.
-- Preserve the H1/H2 hierarchy, canonical URL, and crawlable static content when editing layout.
-- Keep XML and text sitemaps synchronized. A submitted sitemap is not necessarily processed successfully; inspect the Search Console report before claiming success.
-- Run the search visibility check for changes to HTML, crawl configuration, structured data, or referenced assets. This test does not establish Google indexing or ranking.
-
-## Security & Configuration Tips
-
-Do not commit private contact details, unpublished credentials, or large unoptimized media. Keep raw analytics exports and authenticated screenshots outside the repository. Excluding a file from GitHub Pages does not make a public Git repository private.
+Never commit credentials, private contacts, visitor IP exports, authenticated screenshots, `.env` files or unoptimized large media. GitHub Pages exclusions do not make files private in the public Git repository.

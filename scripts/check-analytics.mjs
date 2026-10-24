@@ -41,5 +41,5 @@ if (process.argv.includes("--live")) {
     const hash = value => createHash("sha256").update(value).digest("hex");
     assert.equal(hash(liveCode), hash(code), "Live analytics code differs from the checked revision.");
     console.log("PASS: the live page and loader match this revision (HTTP 200, exact asset hash).");
-    console.log("NOT CHECKED: script execution and backend visitor records. Complete the browser/backend acceptance in docs/analytics.md.");
+    console.log("NOT CHECKED: script execution and backend visitor records. Complete the browser/backend acceptance in docs/maintenance.md.");
 }

@@ -4,3 +4,11 @@
 node_modules/
 analytics-private/
 tmp/
+
+# Generated previews, build output and verification artifacts
+/previews/
+/variants/
+/screenshots/
+/reports/
+/_site/
+/.jekyll-cache/
