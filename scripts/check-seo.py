@@ -8,13 +8,14 @@ import json
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 from urllib.robotparser import RobotFileParser
 import xml.etree.ElementTree as ET
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://houyili.github.io/"
-FILES = ("index.html", "robots.txt", "sitemap.xml", "sitemap.txt")
+FILES = ("index.html", "robots.txt", "sitemap.xml", "sitemap.txt", "404.html")
 
 
 class Page(HTMLParser):
@@ -99,13 +100,20 @@ def check(files):
         href = attrs.get("href", "")
         if href.startswith("#") and len(href) > 1:
             assert href[1:] in ids, f"Broken section link: {href}"
-        target = attrs.get("src") or (href if tag in ("link", "a") else "")
+        target = attrs.get("src") or (href if tag in ("link", "a", "use") else "")
         if target and not urlsplit(target).scheme and not target.startswith(("#", "//")):
             assets.add(target)
     for target in [SITE, SITE + "sitemap.xml", SITE + "sitemap.txt", *[urljoin(SITE, asset) for asset in assets]]:
         assert robots.can_fetch("Googlebot", target), f"Googlebot is blocked: {target}"
     for asset in assets:
-        assert (ROOT / urlsplit(asset).path).is_file(), f"Missing local asset: {asset}"
+        asset_path = ROOT / urlsplit(asset).path.lstrip("/")
+        assert asset_path.is_file(), f"Missing local asset: {asset}"
+        if asset_path.suffix == ".svg" and urlsplit(asset).fragment:
+            symbol_ids = {element.get("id") for element in ET.parse(asset_path).iter()}
+            assert urlsplit(asset).fragment in symbol_ids, f"Missing SVG icon: {asset}"
+    missing = Page(files["404.html"])
+    assert missing.find("meta", name="robots", content="noindex, follow"), "Do not index the error page."
+    assert missing.find("a", href="/") and missing.find("a", href="/#publications"), "The error page must lead back to the profile and research."
     print("PASS: canonical, Google verification, crawl access, identity graph, paper coverage, sitemaps and local assets.")
 
 
@@ -119,6 +127,13 @@ def live_check(local):
             live[filename] = response.read().decode("utf-8")
             assert sha256(live[filename].encode()).digest() == sha256(local[filename].encode()).digest(), f"Live revision mismatch: {filename}"
     check(live)
+    try:
+        urlopen(SITE + "__missing-page-check__", timeout=20)
+    except HTTPError as error:
+        assert error.code == 404, "Missing pages must return HTTP 404."
+        assert error.read().decode("utf-8") == local["404.html"], "The custom recovery page is not deployed."
+    else:
+        raise AssertionError("A missing URL must not return HTTP 200 (soft 404).")
     print("PASS: live pages return HTTP 200 and match this revision. Google indexing/ranking must be checked separately in Search Console.")
 
 

@@ -37,7 +37,11 @@ python3 scripts/sync-styles.py --check
 
 The first command checks canonical URLs, verification, crawl access, identity references, paper coverage, sitemaps and local assets. The second also checks the deployed file hashes and public HTTP responses. GitHub Actions runs the local checks for relevant changes.
 
-The page embeds its four original stylesheets, preserving order and rebasing font URLs. This removes four render-blocking fetches from the first visit; the tradeoff is a larger HTML response and no separate CSS cache for that page. Keep editing the source CSS under `assets/`, then run `python3 scripts/sync-styles.py`. CI checks that the embedded block matches the sources. Compare desktop/mobile rendering and a fresh PageSpeed run after delivery changes.
+The page embeds only `assets/style-2.css`; unused al-folio/Bootstrap and Font Awesome CSS are no longer delivered. The 12 visible icons retain their original outlines in a small SVG sprite instead of requiring the full icon font. Keep editing the source CSS, then run `python3 scripts/sync-styles.py`. Run `python3 scripts/sync-icons.py` after adding an icon from the bundled Font Awesome source. CI checks the embedded styles and SVG references. Compare desktop/mobile rendering and a fresh PageSpeed run after delivery changes.
+
+Theme colors follow `prefers-color-scheme` without JavaScript. An optional System/Light/Dark selector remembers an explicit override locally; blocked storage falls back safely. Both palettes retain blue underlined links and a contrasting red emphasis color. Verify both themes at narrow widths and keep the static biography and paper links accessible without scripts.
+
+GitHub Pages serves `404.html` for missing paths. Its root-relative links lead visitors back to the homepage, research and open models. It is excluded from indexing and from the sitemap. The live check verifies an actual HTTP 404 instead of accepting a soft error page with status 200.
 
 The preloaded Roboto font uses `font-display: optional`. A cold or slow connection may keep the system sans-serif font for that visit rather than replacing visible text late and shifting paragraphs. Fast and cached visits retain Roboto. Do not change this to `swap` without checking layout shift in a cold-load test.
 

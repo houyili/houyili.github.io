@@ -1,4 +1,4 @@
-"""Embed the unchanged source styles to avoid four render-blocking requests."""
+"""Embed the homepage CSS without loading unused framework styles."""
 
 import argparse
 from pathlib import Path
@@ -6,12 +6,7 @@ import re
 from urllib.parse import urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCES = (
-    "assets/vendor/al-folio-base.css",
-    "assets/vendor/al-folio.css",
-    "assets/font-awesome.min.css",
-    "assets/style-2.css",
-)
+SOURCES = ("assets/style-2.css",)
 START = "        <!-- Generated styles: run python3 scripts/sync-styles.py after editing source CSS. -->"
 END = "        <!-- End generated styles. -->"
 
@@ -27,7 +22,7 @@ def embedded_styles():
             value = match.group(2)
             if urlsplit(value).scheme or value.startswith(("/", "#")):
                 return match.group(0)
-            return 'url("' + urljoin(source, value) + '")'
+            return 'url("/' + urljoin(source, value) + '")'
 
         css = re.sub(r"url\(\s*(['\"]?)([^\s)]+?)\1\s*\)", rebase, css)
         chunks.append("/* Source: " + source + " */\n" + css.rstrip())
@@ -45,7 +40,7 @@ if __name__ == "__main__":
     existing = re.search(pattern, html)
     if args.check:
         assert existing and existing.group() == block, "Inline styles are stale; run python3 scripts/sync-styles.py."
-        print("PASS: embedded styles match all four CSS sources, with font URLs rebased.")
+        print("PASS: embedded styles match the source CSS, with root-relative font URLs.")
     else:
         if existing:
             html = html[:existing.start()] + block + html[existing.end():]

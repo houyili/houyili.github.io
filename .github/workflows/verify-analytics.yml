@@ -6,6 +6,7 @@ on:
     paths:
       - index.html
       - assets/visitor-analytics.js
+      - assets/appearance.js
       - tests/**
       - scripts/check-analytics.mjs
       - .github/workflows/verify-analytics.yml
@@ -13,6 +14,7 @@ on:
     paths:
       - index.html
       - assets/visitor-analytics.js
+      - assets/appearance.js
       - tests/**
       - scripts/check-analytics.mjs
       - .github/workflows/verify-analytics.yml
@@ -38,7 +40,7 @@ jobs:
         with:
           node-version: "22"
           package-manager-cache: false
-      - run: node --test tests/visitor-analytics.test.mjs
+      - run: node --test tests/*.test.mjs
       - run: node scripts/check-analytics.mjs
       - if: github.event_name == 'workflow_dispatch' && inputs.verify_live
         run: node scripts/check-analytics.mjs --live
