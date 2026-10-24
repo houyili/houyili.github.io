@@ -16,6 +16,8 @@ There is no package manager, bundler, or generated build output. Edit the static
 
 - `python3 -m http.server 8000` starts a local static server from the repository root.
 - `git diff --check` checks for trailing whitespace and whitespace errors before committing.
+- `node --test tests/visitor-analytics.test.mjs` exercises analytics failure, retry, privacy, and duplicate-load behavior.
+- `node scripts/check-analytics.mjs` checks the production integration; append `--live` after deployment to compare the public files.
 - `find . -maxdepth 2 -type f` gives a quick inventory of tracked-style site files when adding assets.
 
 Preview the site at `http://localhost:8000/` after starting the server.
@@ -28,9 +30,11 @@ For new assets, prefer lowercase, hyphen-separated filenames such as `stepfun-lo
 
 ## Testing Guidelines
 
-No automated test framework is configured. Validate changes manually in a browser at desktop and mobile widths. Check that image paths load, external links open in a new tab when appropriate, and the responsive sidebar behavior still works around the existing `768px` and `900px` breakpoints.
+Analytics tests use Node.js's built-in test runner without additional dependencies. Validate changes manually in a browser at desktop and mobile widths. Check that image paths load, external links open in a new tab when appropriate, and the responsive sidebar behavior still works around the existing `768px` and `900px` breakpoints.
 
 When changing JavaScript, open the browser console and confirm there are no runtime errors.
+
+For analytics changes, run the analytics tests and integration check. Follow `docs/analytics.md` for authenticated backend acceptance. A loaded script is not proof of a stored visitor record; keep that check pending until verified. Keep raw visitor exports outside this public repository.
 
 ## Commit & Pull Request Guidelines
 
