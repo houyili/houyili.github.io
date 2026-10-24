@@ -20,6 +20,8 @@ Keep English/Chinese names attached to one identity; this page does not need inv
 
 Statcounter project `13362025` provides collection and the authenticated dashboard. Its public installation token is not an account credential; no private backend data belongs in this repository.
 
+After every successful Pages build, the analytics workflow checks the deployed revision's page and loader against that build's commit. It runs the theme and analytics tests, then compares the public loader's version and content. This detects stale or missing deployed code; backend ingestion still requires the acceptance below.
+
 The loader accepts only the exact HTTPS production origin, respects GPC/DNT and skips `?analytics=off`, local and file previews. It waits for connectivity/prerender activation, prevents duplicate initialization and retries a definite download failure once. A timeout does not trigger another hit because the first request may still complete. Keep these guards and avoid fallback pixels or tracking proxies. JavaScript-disabled or blocked visits are not recorded; collection failures must leave the page usable.
 
 To verify backend ingestion:

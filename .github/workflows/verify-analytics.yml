@@ -1,6 +1,7 @@
 name: Verify visitor analytics
 
 on:
+  page_build:
   push:
     branches: [main]
     paths:
@@ -30,17 +31,19 @@ permissions:
 
 jobs:
   verify:
+    if: github.event_name != 'page_build' || github.event.build.status == 'built'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+          ref: ${{ github.event.build.commit || github.sha }}
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: "22"
           package-manager-cache: false
       - run: node --test tests/*.test.mjs
       - run: node scripts/check-analytics.mjs
-      - if: github.event_name == 'workflow_dispatch' && inputs.verify_live
+      - if: github.event_name == 'page_build' || (github.event_name == 'workflow_dispatch' && inputs.verify_live)
         run: node scripts/check-analytics.mjs --live
