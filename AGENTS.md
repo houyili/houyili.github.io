@@ -18,6 +18,7 @@ There is no package manager, bundler, or generated build output. Edit the static
 - `git diff --check` checks for trailing whitespace and whitespace errors before committing.
 - `node --test tests/visitor-analytics.test.mjs` exercises analytics failure, retry, privacy, and duplicate-load behavior.
 - `node scripts/check-analytics.mjs` checks the production integration; append `--live` after deployment to compare the public files.
+- `python3 scripts/check-seo.py` validates search visibility and sitemap consistency; append `--live` after deployment to compare public files.
 - `find . -maxdepth 2 -type f` gives a quick inventory of tracked-style site files when adding assets.
 
 Preview the site at `http://localhost:8000/` after starting the server.
@@ -48,6 +49,8 @@ Pull requests should include a short summary, screenshots for visual changes, an
 - Use `Person.sameAs` only for the author's own identity/profile pages, not papers, models, or team repositories. Research belongs in the profile page's `hasPart` entries.
 - Update `sitemap.xml` lastmod and the profile's `dateModified` when making significant content or structured-data changes; use the actual edit date.
 - Preserve the H1/H2 hierarchy, canonical URL, and crawlable static content when editing layout.
+- Keep XML and text sitemaps synchronized. A submitted sitemap is not necessarily processed successfully; inspect the Search Console report before claiming success.
+- Run the search visibility check for changes to HTML, crawl configuration, structured data, or referenced assets. This test does not establish Google indexing or ranking.
 
 ## Security & Configuration Tips
 
