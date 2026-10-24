@@ -42,6 +42,8 @@ For analytics changes, run the analytics tests and integration check. Follow `do
 
 ## Commit & Pull Request Guidelines
 
+Keep `main` as the only local and remote branch for this homepage. Update the current academic layout in place; do not maintain parallel template variants or preview configurations in the repository.
+
 The current history uses short messages such as `minor` and `initial homepage`; prefer a concise but more descriptive imperative subject, for example `Update publication links` or `Refresh profile copy`.
 
 Pull requests should include a short summary, screenshots for visual changes, and the manual validation performed. Mention any changed external links, deployment settings, or newly added media files.
