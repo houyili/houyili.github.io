@@ -76,6 +76,7 @@ def check(files):
     assert profile["mainEntity"]["@id"] == person["@id"]
     assert person["@type"] == "Person" and person["name"] == "Houyi Li"
     assert person["url"] == SITE and person["mainEntityOfPage"]["@id"] == profile["@id"]
+    assert person["image"].startswith(SITE), "The identity portrait must remain on this site."
     assert nodes[SITE + "#website"]["url"] == SITE
     assert len(profile["hasPart"]) == len(page.find("article", **{"class": "publication"})), "Visible papers and schema are out of sync."
     assert "https://orcid.org/0009-0003-6107-5954" in person["sameAs"]
@@ -98,6 +99,7 @@ def check(files):
     assert set(robots.site_maps() or []) == {SITE + "sitemap.xml", SITE + "sitemap.txt"}
     ids = {attrs["id"] for _, attrs in page.elements if "id" in attrs}
     assets = set()
+    assets.add(person["image"].removeprefix(SITE))
     # Inline CSS and social previews are also assets, even though they have no src attribute.
     for _, target in re.findall(r"url\(\s*(['\"]?)([^\s)]+?)\1\s*\)", files["index.html"]):
         if not urlsplit(target).scheme and not target.startswith("//"):
@@ -110,6 +112,12 @@ def check(files):
     for tag, attrs in page.elements:
         if tag == "img":
             assert "alt" in attrs, "Image alt text is missing."
+        # Responsive candidates are real dependencies, not disposable duplicates.
+        for candidate in attrs.get("srcset", "").split(","):
+            if candidate.strip():
+                target = candidate.strip().split()[0]
+                if not urlsplit(target).scheme and not target.startswith("//"):
+                    assets.add(target)
         href = attrs.get("href", "")
         if href.startswith("#") and len(href) > 1:
             assert href[1:] in ids, f"Broken section link: {href}"

@@ -7,7 +7,7 @@ This is a static GitHub Pages homepage. Keep `main` as the only local and remote
 - `index.html` contains the biography, news, papers, metadata and generated inline CSS.
 - `assets/homepage.css` is the single stylesheet source. Run `python3 scripts/sync-styles.py` after editing it; never edit the generated block independently.
 - `assets/appearance.js` handles theme preferences; `assets/visitor-analytics.js` loads Statcounter. Keep content usable without JavaScript and analytics failures harmless.
-- Preserve referenced images, the Roboto font, SVG icons and licenses, plus all linked PDFs in `slides/`. A different image format used by social previews is not an unused duplicate.
+- Preserve referenced images, responsive image candidates, the Roboto font, SVG icons and licenses, plus all linked PDFs in `slides/`. The PNG portrait belongs to the identity graph; the landscape card is for social previews. Neither is an unused duplicate.
 - `_config.yml` excludes maintenance files from publication. Do not add `.nojekyll`, which bypasses those exclusions.
 
 Use plain HTML/CSS/JavaScript, four-space HTML/CSS indentation, semantic headings and image alt text. Prefer lowercase hyphenated asset names and relative paths. There are no framework, package-manager or installation dependencies.

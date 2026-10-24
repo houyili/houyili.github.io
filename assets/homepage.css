@@ -128,8 +128,8 @@ button, select {
     outline: 2px solid currentColor;
     outline-offset: 5px;
 }
-section {
-    scroll-margin-top: 100px;
+section, #models {
+    scroll-margin-top: 24px;
 }
 .skip {
     position: absolute;
@@ -281,6 +281,20 @@ h2 {
     font-size: 16px;
     line-height: 1.45;
 }
+.model-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 16px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+}
+.model-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 36px;
+}
 .news-row time {
     color: var(--muted-color);
     font-size: 13px;
@@ -300,10 +314,12 @@ h2 {
 }
 .news-indicator {
     display: inline-block;
-    width: 28px;
-    height: 11px;
+    color: var(--emphasis-color);
     margin-right: 3px;
-    vertical-align: baseline;
+    animation: news-glow 2.4s ease-in-out infinite;
+}
+@keyframes news-glow {
+    50% { opacity: .55; }
 }
 .publication {
     display: grid;
@@ -461,7 +477,7 @@ h2 {
         gap: 6px 16px;
     }
     .top-nav nav {
-        gap: 6px 16px;
+        gap: 6px 12px;
     }
     .top-nav nav a {
         font-size: 13px;
@@ -521,6 +537,13 @@ h2 {
     .career-strip {
         grid-template-columns: repeat(2,minmax(0,1fr));
         gap: 30px;
+    }
+}
+@media (max-width: 480px) {
+    .news-row {
+        grid-template-columns: minmax(0,1fr);
+        gap: 2px;
+        padding: 6px 0;
     }
 }
 @media (max-width: 380px) {

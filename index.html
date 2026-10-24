@@ -29,17 +29,17 @@
         <meta content="Houyi Li" property="og:site_name">
         <meta content="profile" property="og:type">
         <meta content="https://houyili.github.io/" property="og:url">
-        <meta content="https://houyili.github.io/images/profile.png" property="og:image">
-        <meta content="302" property="og:image:width">
-        <meta content="349" property="og:image:height">
-        <meta content="Portrait of Houyi Li (李厚意)" property="og:image:alt">
+        <meta content="https://houyili.github.io/images/houyi-li-card.png" property="og:image">
+        <meta content="1200" property="og:image:width">
+        <meta content="630" property="og:image:height">
+        <meta content="Houyi Li — AI Infrastructure Lead at TikTok; former Pretraining Lead at StepFun" property="og:image:alt">
         <meta content="Houyi" property="profile:first_name">
         <meta content="Li" property="profile:last_name">
-        <meta content="summary" name="twitter:card">
+        <meta content="summary_large_image" name="twitter:card">
         <meta content="Houyi Li (李厚意) | LLM/VLM Pretraining &amp; AI Infrastructure" name="twitter:title">
         <meta content="Houyi Li (李厚意): AI infrastructure leader at TikTok; former StepFun pretraining lead. Research on LLMs/VLMs, scaling laws, architecture, and open models." name="twitter:description">
-        <meta content="https://houyili.github.io/images/profile.png" name="twitter:image">
-        <meta content="Portrait of Houyi Li (李厚意)" name="twitter:image:alt">
+        <meta content="https://houyili.github.io/images/houyi-li-card.png" name="twitter:image">
+        <meta content="Houyi Li — AI Infrastructure Lead at TikTok; former Pretraining Lead at StepFun" name="twitter:image:alt">
         <meta content="@JackLee1551695" name="twitter:creator">
         <link href="images/favicon.png" rel="icon" sizes="96x96" type="image/png">
         <link href="assets/fonts/roboto-latin.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
@@ -176,8 +176,8 @@ button, select {
     outline: 2px solid currentColor;
     outline-offset: 5px;
 }
-section {
-    scroll-margin-top: 100px;
+section, #models {
+    scroll-margin-top: 24px;
 }
 .skip {
     position: absolute;
@@ -329,6 +329,20 @@ h2 {
     font-size: 16px;
     line-height: 1.45;
 }
+.model-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 16px;
+    margin: 8px 0 12px;
+    font-size: 14px;
+}
+.model-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    min-height: 36px;
+}
 .news-row time {
     color: var(--muted-color);
     font-size: 13px;
@@ -348,10 +362,12 @@ h2 {
 }
 .news-indicator {
     display: inline-block;
-    width: 28px;
-    height: 11px;
+    color: var(--emphasis-color);
     margin-right: 3px;
-    vertical-align: baseline;
+    animation: news-glow 2.4s ease-in-out infinite;
+}
+@keyframes news-glow {
+    50% { opacity: .55; }
 }
 .publication {
     display: grid;
@@ -509,7 +525,7 @@ h2 {
         gap: 6px 16px;
     }
     .top-nav nav {
-        gap: 6px 16px;
+        gap: 6px 12px;
     }
     .top-nav nav a {
         font-size: 13px;
@@ -569,6 +585,13 @@ h2 {
     .career-strip {
         grid-template-columns: repeat(2,minmax(0,1fr));
         gap: 30px;
+    }
+}
+@media (max-width: 480px) {
+    .news-row {
+        grid-template-columns: minmax(0,1fr);
+        gap: 2px;
+        padding: 6px 0;
     }
 }
 @media (max-width: 380px) {
@@ -641,7 +664,7 @@ h2 {
                 "name": "Houyi Li (李厚意) | LLM/VLM Pretraining & AI Infrastructure",
                 "description": "Houyi Li (李厚意): AI infrastructure leader at TikTok; former StepFun pretraining lead. Research on LLMs/VLMs, scaling laws, architecture, and open models.",
                 "inLanguage": "en",
-                "dateModified": "2026-10-24T10:11:37+08:00",
+                "dateModified": "2026-10-24T20:18:33+08:00",
                 "isPartOf": {
                     "@id": "https://houyili.github.io/#website"
                 },
@@ -772,8 +795,8 @@ h2 {
             <a href="#top" class="wordmark">Houyi <b>Li</b></a>
             <nav aria-label="Main navigation">
                 <a href="#experience">Experience</a>
-                <a href="#publications">Research</a>
-                <a href="#open-source-news">News</a>
+                <a href="#publications">Papers</a>
+                <a href="#models">Models</a>
                 <a href="https://houyi.blog/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Blog ↗</a>
             </nav>
             <label class="theme-picker" title="Follow your device or choose a color theme">
@@ -793,7 +816,7 @@ h2 {
             </header>
             <section id="experience" class="academic-about" aria-label="Experience">
                 <aside class="academic-profile">
-                    <img class="portrait" src="images/profile.webp" alt="Portrait of Houyi Li (李厚意)" width="302" height="349" decoding="async">
+                    <img class="portrait" src="images/profile.webp" srcset="images/profile-small.webp 180w, images/profile.webp 302w" sizes="(max-width: 380px) 72px, (max-width: 700px) 90px, 238px" alt="Portrait of Houyi Li (李厚意)" width="302" height="349" decoding="async">
                     <div class="profile-caption">Full Stack: Data · Infra · Algorithms</div>
                     <div class="profile-social">
                         <a href="https://scholar.google.com/citations?user=LkqxJqoAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#graduation-cap"></use></svg> Google Scholar</a>
@@ -833,31 +856,37 @@ h2 {
                 </div>
             </section>
             <section id="open-source-news">
-                <h2><span class="heading-icon" aria-hidden="true">✨</span> Open source models and news</h2>
+                <h2 id="models"><span class="heading-icon" aria-hidden="true">✨</span> Open source models and news</h2>
+                <div class="model-links" aria-label="Open model collections">
+                    <a href="https://huggingface.co/StepLaw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Step Law</a>
+                    <a href="https://huggingface.co/Farseer-Scaling-Law" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Farseer</a>
+                    <a href="https://huggingface.co/kamanphoebe/moe_surpass_dense" aria-label="MoE research models" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> MoE</a>
+                    <a href="https://huggingface.co/stepfun-ai/step3" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Step3</a>
+                </div>
                 <div class="news-list">
                     <article class="news-row">
                         <time datetime="2026-04">2026.04</time>
-                        <div><img class="news-indicator" src="images/new.gif" alt="New" width="28" height="11"> Mixture-of-Experts Can Surpass Dense LLMs Under Strictly Equal Resource was accepted as an <strong>ICLR 2026 Oral</strong>. I gave the oral presentation in Brazil on April 25, 2026. <a aria-label="Camera ready: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="slides/moe-equal-resources-camera-ready.pdf" target="_blank" rel="noopener noreferrer">Camera ready</a> / <a aria-label="Poster: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="slides/moe-equal-resources-poster.pdf" target="_blank" rel="noopener noreferrer">Poster</a> / <a aria-label="Slides: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="slides/moe-equal-resources-slides.pdf" target="_blank" rel="noopener noreferrer">Slides</a></div>
+                        <div><span class="news-indicator" role="img" aria-label="Latest update">✦</span> Our paper “Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?” was accepted as an <strong>ICLR 2026 Oral</strong>. I gave the oral presentation in Brazil on April 25, 2026. <a aria-label="Camera ready: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="slides/moe-equal-resources-camera-ready.pdf" target="_blank" rel="noopener noreferrer">Camera ready</a> / <a aria-label="Poster: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="slides/moe-equal-resources-poster.pdf" target="_blank" rel="noopener noreferrer">Poster</a> / <a aria-label="Slides: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="slides/moe-equal-resources-slides.pdf" target="_blank" rel="noopener noreferrer">Slides</a></div>
                     </article>
                     <article class="news-row">
                         <time datetime="2025-12">2025.12</time>
-                        <div><img class="news-indicator" src="images/new.gif" alt="New" width="28" height="11"> Predictable Scale (Part II) -- Farseer: A Refined Scaling Law in LLMs was accepted as a <strong>NeurIPS 2025 Spotlight</strong>. <a aria-label="Camera ready: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="slides/predictable-scale-part-ii-camera-ready.pdf" target="_blank" rel="noopener noreferrer">Camera ready</a> / <a aria-label="Poster: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="slides/predictable-scale-part-ii-poster.pdf" target="_blank" rel="noopener noreferrer">Poster</a></div>
+                        <div>Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models was accepted as a <strong>NeurIPS 2025 Spotlight</strong>. <a aria-label="Camera ready: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="slides/predictable-scale-part-ii-camera-ready.pdf" target="_blank" rel="noopener noreferrer">Camera ready</a> / <a aria-label="Poster: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="slides/predictable-scale-part-ii-poster.pdf" target="_blank" rel="noopener noreferrer">Poster</a></div>
                     </article>
                     <article class="news-row">
                         <time datetime="2025-07">2025.07</time>
-                        <div><img class="news-indicator" src="images/new.gif" alt="New" width="28" height="11"> <a href="https://www.stepfun.com/research/en/step3" target="_blank" rel="noopener noreferrer">Step3(321B-A38B)</a> is opensourced. It is designed end-to-end to minimize decoding costs while delivering top-tier performance in vision–language reasoning.</div>
+                        <div><a href="https://www.stepfun.com/research/en/step3" target="_blank" rel="noopener noreferrer">Step3 (321B-A38B)</a> was open-sourced. It is designed end-to-end to minimize decoding costs while delivering top-tier performance in vision–language reasoning.</div>
                     </article>
                     <article class="news-row">
                         <time datetime="2025-06">2025.06</time>
-                        <div><img class="news-indicator" src="images/new.gif" alt="New" width="28" height="11"> <a href="https://huggingface.co/Farseer-Scaling-Law" target="_blank" rel="noopener noreferrer"> More than 4 hundreds language models</a> are opensourced, a very large sweep of models up to ~10^10 params and ~10^11 tokens, to boost the area of scaling law.</div>
+                        <div>We open-sourced <a href="https://huggingface.co/Farseer-Scaling-Law" target="_blank" rel="noopener noreferrer">more than 400 language models</a> for scaling-law research, covering models with up to approximately 10 billion parameters and training runs with up to approximately 100 billion tokens.</div>
                     </article>
                     <article class="news-row">
                         <time datetime="2025-04">2025.04</time>
-                        <div><img class="news-indicator" src="images/new.gif" alt="New" width="28" height="11"> <a href="https://huggingface.co/StepLaw" target="_blank" rel="noopener noreferrer">We released almost 4000 models</a> under various hyper-parameter and various setting. This is largest open-source project in optimal hyper-parameter for LLM pre-training.</div>
+                        <div>We released <a href="https://huggingface.co/StepLaw" target="_blank" rel="noopener noreferrer">nearly 4,000 research models</a> spanning a wide range of hyperparameter configurations to support reproducible LLM pretraining research.</div>
                     </article>
                     <article class="news-row">
                         <time datetime="2025-01">2025.01</time>
-                        <div><img class="news-indicator" src="images/new.gif" alt="New" width="28" height="11"> Step2-mini, a LLM with extremely fast inference speed and very low cost, is now available on the <a href="https://platform.stepfun.com/" target="_blank" rel="noopener noreferrer"> open platform</a>. The price is only 1 RMB for one million tokens.<a href="https://mp.weixin.qq.com/s/LbczNQ-3yRbA1o5BQ9wfkg" target="_blank" rel="noopener noreferrer"> (introduction in Chinese) </a></div>
+                        <div>Step2-mini launched on the <a href="https://platform.stepfun.com/" target="_blank" rel="noopener noreferrer">StepFun open platform</a>, offering fast, low-cost inference. Launch pricing was RMB 1 per million tokens. <a href="https://mp.weixin.qq.com/s/LbczNQ-3yRbA1o5BQ9wfkg" target="_blank" rel="noopener noreferrer">Introduction in Chinese</a></div>
                     </article>
                 </div>
             </section>
@@ -877,6 +906,7 @@ h2 {
                                     <a aria-label="PDF: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="slides/moe-equal-resources-camera-ready.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
                                     <a aria-label="Models: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="https://huggingface.co/kamanphoebe/moe_surpass_dense" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Models</a>
                                     <a aria-label="Homepage: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="https://kamanphoebe.github.io/moe-surpass-dense.github.io/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#home"></use></svg> Homepage</a>
+                                    <a aria-label="Explainer: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="https://houyi.blog/en/moe-equal-resources-p1/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Explainer</a>
                                     <a aria-label="Poster: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="slides/moe-equal-resources-poster.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> Poster</a>
                                     <a aria-label="Slides: Can Mixture-of-Experts Surpass Dense LLMs Under Strictly Equal Resources?" href="slides/moe-equal-resources-slides.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-powerpoint-o"></use></svg> Slides</a>
                                 </div>
@@ -895,9 +925,9 @@ h2 {
                                 <span class="paper-venue"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#trophy"></use></svg> NeurIPS 2025 Spotlight</span>
                                 <div class="paper-links">
                                     <a aria-label="PDF: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="slides/predictable-scale-part-ii-camera-ready.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
-                                    <a aria-label="Github: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="https://github.com/Farseer-Scaling-Law/Farseer" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github-alt"></use></svg> Github</a>
+                                    <a aria-label="GitHub: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="https://github.com/Farseer-Scaling-Law/Farseer" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github-alt"></use></svg> GitHub</a>
                                     <a aria-label="Models: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="https://huggingface.co/Farseer-Scaling-Law" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Models</a>
-                                    <a aria-label="WanDB: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="https://wandb.ai/billzid/Farseer?nw=nwuserbillzid" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#flask"></use></svg> WanDB</a>
+                                    <a aria-label="W&amp;B: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="https://wandb.ai/billzid/Farseer?nw=nwuserbillzid" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#flask"></use></svg> W&amp;B</a>
                                     <a aria-label="Homepage: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="https://farseer-scaling-law.github.io/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#home"></use></svg> Homepage</a>
                                     <a aria-label="Poster: Predictable Scale: Part II, Farseer: A Refined Scaling Law in Large Language Models" href="slides/predictable-scale-part-ii-poster.pdf" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> Poster</a>
                                 </div>
@@ -914,10 +944,10 @@ h2 {
                             <div class="authors"><span class="thisauthor">Houyi Li*</span>, Wenzhen Zheng*, Qiufeng Wang, Hanshan Zhang, Zili Wang, Shijie Xuyang, Yuantao Fan, Zhenyu Ding, Haoying Wang, Ning Ding, Shuigeng Zhou, Xiangyu Zhang, Daxin Jiang</div>
                             <div class="paper-meta">
                                 <div class="paper-links">
-                                    <a aria-label="PDF: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://arxiv.org/abs/2503.04715" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
-                                    <a aria-label="Github: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://github.com/step-law/steplaw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github-alt"></use></svg> Github</a>
+                                    <a aria-label="PDF: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://arxiv.org/pdf/2503.04715" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
+                                    <a aria-label="GitHub: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://github.com/step-law/steplaw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github-alt"></use></svg> GitHub</a>
                                     <a aria-label="Models: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://huggingface.co/StepLaw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Models</a>
-                                    <a aria-label="WanDB: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://wandb.ai/billzid/predictable-scale" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#flask"></use></svg> WanDB</a>
+                                    <a aria-label="W&amp;B: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://wandb.ai/billzid/predictable-scale" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#flask"></use></svg> W&amp;B</a>
                                     <a aria-label="Homepage: Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://step-law.github.io/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#home"></use></svg> Homepage</a>
                                     <a aria-label="Media (Chinese): Predictable Scale: Part I, Step Law -- Optimal Hyperparameter Scaling Law in Large Language Model Pretraining" href="https://mp.weixin.qq.com/s/atA8y-vF-7wsUcXKoz5oFw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Media (Chinese)</a>
                                 </div>
@@ -935,8 +965,8 @@ h2 {
                             <div class="paper-meta">
                                 <div class="paper-links">
                                     <a aria-label="PDF: Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" href="https://arxiv.org/pdf/2507.19427" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
-                                    <a aria-label="Github: Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" href="https://github.com/stepfun-ai/Step3" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github-alt"></use></svg> Github</a>
-                                    <a aria-label="Huggingface: Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" href="https://huggingface.co/collections/stepfun-ai/step3-688a3d652dbb45d868f9d42d" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Huggingface</a>
+                                    <a aria-label="GitHub: Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" href="https://github.com/stepfun-ai/Step3" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github-alt"></use></svg> GitHub</a>
+                                    <a aria-label="Hugging Face: Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" href="https://huggingface.co/collections/stepfun-ai/step3-688a3d652dbb45d868f9d42d" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#download"></use></svg> Hugging Face</a>
                                     <a aria-label="Media (Chinese): Step-3 is Large yet Affordable: Model-system Co-design for Cost-effective Decoding" href="https://mp.weixin.qq.com/s/t9HAQG6WD3BPwg95d4Y8Fw" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Media (Chinese)</a>
                                 </div>
                             </div>
@@ -969,7 +999,7 @@ h2 {
                             <div class="paper-meta">
                                 <span class="paper-venue"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#trophy"></use></svg> SIGIR 2021 </span>
                                 <div class="paper-links">
-                                    <a aria-label="PDF: Path-based Deep Network for Candidate Item Matching in Recommenders" href="https://arxiv.org/abs/2105.08246" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
+                                    <a aria-label="PDF: Path-based Deep Network for Candidate Item Matching in Recommenders" href="https://arxiv.org/pdf/2105.08246" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-pdf-o"></use></svg> PDF</a>
                                     <a aria-label="Media (Chinese): Path-based Deep Network for Candidate Item Matching in Recommenders" href="https://mp.weixin.qq.com/s/NznGxYghZZI-h_gnE2cu3A" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Media (Chinese)</a>
                                 </div>
                             </div>
@@ -995,14 +1025,14 @@ h2 {
             <div class="career-strip" aria-label="Career history">
                 <div class="career-item">
                     <div class="logo-box logo-alibaba">
-                        <img src="images/ali-logo.jpeg" alt="Alibaba Group logo" loading="lazy" width="889" height="500">
+                        <img src="images/ali-logo.webp" alt="Alibaba Group logo" loading="lazy" width="380" height="214">
                     </div>
                     <strong>Alibaba Group</strong>
                     <span>2016 - 2021 &amp; 2023 - 2024</span>
                 </div>
                 <div class="career-item">
                     <div class="logo-box logo-kuaishou">
-                        <img src="images/kuai-log-2.jpeg" alt="Kuaishou Group logo" loading="lazy" width="707" height="500">
+                        <img src="images/kuaishou-logo.webp" alt="Kuaishou Group logo" loading="lazy" width="252" height="178">
                     </div>
                     <strong>Kuaishou Group</strong>
                     <span>2021 - 2023</span>
@@ -1029,7 +1059,7 @@ h2 {
 <div>Visitor analytics by <a href="https://statcounter.com/about/legal/#privacy" target="_blank" rel="noopener">Statcounter · Privacy</a></div>
 </footer>
         <script src="assets/appearance.js" defer></script>
-        <!-- Production-only visitor analytics; see docs/analytics.md for verification. -->
+        <!-- Production-only visitor analytics; see docs/maintenance.md for verification. -->
         <script id="visitor-analytics" src="assets/visitor-analytics.js?v=2026-10-24.1" defer></script>
     </body>
 </html>
