@@ -12,10 +12,11 @@ This repository is a small static personal homepage intended for GitHub Pages-st
 
 ## Build, Test, and Development Commands
 
-There is no package manager, bundler, or generated build output. Edit the static files directly.
+There is no package manager or dependency installation. Edit the static HTML and CSS sources directly. The homepage embeds the four source stylesheets to avoid render-blocking network requests; regenerate that block after editing CSS.
 
 - `python3 -m http.server 8000` starts a local static server from the repository root.
 - `git diff --check` checks for trailing whitespace and whitespace errors before committing.
+- `python3 scripts/sync-styles.py` refreshes the embedded styles after source CSS edits; use `--check` to detect stale output.
 - `node --test tests/visitor-analytics.test.mjs` exercises analytics failure, retry, privacy, and duplicate-load behavior.
 - `node scripts/check-analytics.mjs` checks the production integration; append `--live` after deployment to compare the public files.
 - `python3 scripts/check-seo.py` validates search visibility and sitemap consistency; append `--live` after deployment to compare public files.

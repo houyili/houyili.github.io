@@ -32,9 +32,12 @@ Keep titles, descriptions, headings, and structured data consistent with visible
 ```sh
 python3 scripts/check-seo.py
 python3 scripts/check-seo.py --live
+python3 scripts/sync-styles.py --check
 ```
 
 The first command checks canonical URLs, verification, crawl access, identity references, paper coverage, sitemaps and local assets. The second also checks the deployed file hashes and public HTTP responses. GitHub Actions runs the local checks for relevant changes.
+
+The page embeds its four original stylesheets, preserving order and rebasing font URLs. This removes four render-blocking fetches from the first visit; the tradeoff is a larger HTML response and no separate CSS cache for that page. Keep editing the source CSS under `assets/`, then run `python3 scripts/sync-styles.py`. CI checks that the embedded block matches the sources. Compare desktop/mobile rendering and a fresh PageSpeed run after delivery changes.
 
 After changing structured data, validate with Google's Rich Results Test or the Search Console live test. Keep authenticated reports/screenshots outside this public repository. Use the Performance report for clicks, impressions and query positions once it has enough data; a Lighthouse SEO score is a technical check, not a Google ranking.
 

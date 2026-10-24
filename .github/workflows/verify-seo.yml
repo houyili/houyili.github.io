@@ -10,6 +10,7 @@ on:
       - assets/**
       - images/**
       - scripts/check-seo.py
+      - scripts/sync-styles.py
       - .github/workflows/verify-seo.yml
   pull_request:
     paths:
@@ -19,6 +20,7 @@ on:
       - assets/**
       - images/**
       - scripts/check-seo.py
+      - scripts/sync-styles.py
       - .github/workflows/verify-seo.yml
   workflow_dispatch:
     inputs:
@@ -38,6 +40,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+      - run: python3 scripts/sync-styles.py --check
       - run: python3 scripts/check-seo.py
       - if: github.event_name == 'workflow_dispatch' && inputs.verify_live
         run: python3 scripts/check-seo.py --live
