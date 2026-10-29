@@ -14,6 +14,7 @@ on:
       - images/**
       - scripts/check-seo.py
       - scripts/sync-styles.py
+      - scripts/sync-icons.py
       - .github/workflows/verify-seo.yml
   pull_request:
     paths:
@@ -26,6 +27,7 @@ on:
       - images/**
       - scripts/check-seo.py
       - scripts/sync-styles.py
+      - scripts/sync-icons.py
       - .github/workflows/verify-seo.yml
   workflow_dispatch:
     inputs:
@@ -48,6 +50,7 @@ jobs:
           persist-credentials: false
           ref: ${{ github.event.build.commit || github.sha }}
       - run: python3 scripts/sync-styles.py --check
+      - run: python3 scripts/sync-icons.py --check
       - run: python3 scripts/check-seo.py
       - if: github.event_name == 'page_build' || (github.event_name == 'workflow_dispatch' && inputs.verify_live)
         run: python3 scripts/check-seo.py --live
