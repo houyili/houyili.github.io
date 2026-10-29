@@ -176,8 +176,8 @@ button, select {
     outline: 2px solid currentColor;
     outline-offset: 5px;
 }
-section, #models {
-    scroll-margin-top: 24px;
+section, #models, #main-content {
+    scroll-margin-top: 96px;
 }
 .skip {
     position: absolute;
@@ -192,6 +192,9 @@ section, #models {
     top: 10px;
 }
 .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -200,6 +203,7 @@ section, #models {
     margin: 0 auto;
     padding: 14px 0;
     border-bottom: 1px solid var(--divider-color);
+    background: var(--page-bg);
     font-size: 14px;
 }
 .top-nav nav {
@@ -359,7 +363,7 @@ html.portrait-modal-open {
 .profile-social {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 14px;
+    gap: 4px;
     margin-top: 12px;
     font-size: 13px;
 }
@@ -581,13 +585,17 @@ html.portrait-modal-open {
     }
 }
 @media (max-width: 700px) {
+    section, #models, #main-content {
+        scroll-margin-top: 128px;
+    }
     .top-nav {
+        display: grid;
+        grid-template-columns: minmax(0,1fr) auto;
         padding: 10px 0;
-        flex-wrap: wrap;
-        gap: 6px 16px;
+        gap: 6px 12px;
     }
     .top-nav nav {
-        gap: 6px 12px;
+        gap: 0 12px;
     }
     .top-nav nav a {
         font-size: 13px;
@@ -856,12 +864,13 @@ html.portrait-modal-open {
     <body class="academic" id="top">
         <a class="skip" href="#main-content">Skip to content</a>
         <header class="top-nav">
-            <a href="#top" class="wordmark">Houyi <b>Li</b></a>
+            <span class="wordmark">Houyi <b>Li</b></span>
             <nav aria-label="Main navigation">
                 <a href="#experience">Experience</a>
                 <a href="#publications">Papers</a>
                 <a href="#models">Models</a>
                 <a href="https://houyi.blog/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Blog ↗</a>
+                <a href="https://www.linkedin.com/in/houyi-li-6672a6a9/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#linkedin"></use></svg> LinkedIn ↗</a>
             </nav>
             <label class="theme-picker" title="Follow your device or choose a color theme">
                 <select id="color-theme" aria-label="Color theme" disabled>
@@ -888,8 +897,6 @@ html.portrait-modal-open {
                         <a href="https://scholar.google.com/citations?user=LkqxJqoAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#graduation-cap"></use></svg> Google Scholar</a>
                         <a href="mailto:lihouyi2013@hotmail.com"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#envelope"></use></svg> Email</a>
                         <a href="https://x.com/JackLee1551695" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#twitter"></use></svg> Twitter</a>
-                        <a href="https://www.linkedin.com/in/houyi-li-6672a6a9/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#linkedin"></use></svg> LinkedIn</a>
-                        <a href="https://houyi.blog/" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book"></use></svg> Blog</a>
                     </div>
                 </aside>
                 <div class="biography">

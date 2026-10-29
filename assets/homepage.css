@@ -128,8 +128,8 @@ button, select {
     outline: 2px solid currentColor;
     outline-offset: 5px;
 }
-section, #models {
-    scroll-margin-top: 24px;
+section, #models, #main-content {
+    scroll-margin-top: 96px;
 }
 .skip {
     position: absolute;
@@ -144,6 +144,9 @@ section, #models {
     top: 10px;
 }
 .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -152,6 +155,7 @@ section, #models {
     margin: 0 auto;
     padding: 14px 0;
     border-bottom: 1px solid var(--divider-color);
+    background: var(--page-bg);
     font-size: 14px;
 }
 .top-nav nav {
@@ -311,7 +315,7 @@ html.portrait-modal-open {
 .profile-social {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 14px;
+    gap: 4px;
     margin-top: 12px;
     font-size: 13px;
 }
@@ -533,13 +537,17 @@ html.portrait-modal-open {
     }
 }
 @media (max-width: 700px) {
+    section, #models, #main-content {
+        scroll-margin-top: 128px;
+    }
     .top-nav {
+        display: grid;
+        grid-template-columns: minmax(0,1fr) auto;
         padding: 10px 0;
-        flex-wrap: wrap;
-        gap: 6px 16px;
+        gap: 6px 12px;
     }
     .top-nav nav {
-        gap: 6px 12px;
+        gap: 0 12px;
     }
     .top-nav nav a {
         font-size: 13px;
