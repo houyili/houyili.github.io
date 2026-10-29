@@ -2,6 +2,10 @@
 
 Canonical site: https://houyili.github.io/. Local checks and editing conventions are in `AGENTS.md`. Keep operational evidence outside the public repository and retain only the latest useful summary.
 
+## Portrait assets
+
+Generate portraits from the original 3840×3072 photograph, not an existing thumbnail. The current crop is `(left: 1034, top: 300, width: 2215, height: 2560)`. Keep `images/profile-full.jpg` at that full cropped resolution for the clickable portrait. The homepage uses 1208×1396 and 360×416 WebP candidates for high-density screens; `profile.png` is the 604×698 identity image. Keep the displayed portrait size and crop unchanged when refreshing image quality, update the `srcset` width descriptors to match the actual files, and bump image URL versions to invalidate cached assets.
+
 ## Search visibility
 
 Preserve the Google verification tag and use the existing HTTPS URL-prefix property in Search Console. Inspect the canonical URL for fresh results:
