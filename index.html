@@ -293,6 +293,63 @@ h2 {
     border-radius: 4px;
     box-shadow: 0 3px 12px #00000016;
 }
+html.portrait-modal-open {
+    overflow: hidden;
+}
+.portrait-lightbox {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 32px 16px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    overflow: hidden;
+    cursor: zoom-out;
+}
+.portrait-lightbox[open] {
+    display: grid;
+    place-items: center;
+}
+.portrait-lightbox::backdrop {
+    background: #000d;
+}
+.portrait-lightbox-image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 64px);
+    max-height: calc(100dvh - 64px);
+    border-radius: 4px;
+    box-shadow: 0 12px 48px #0006;
+    cursor: default;
+}
+.portrait-lightbox-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid #ffffff50;
+    border-radius: 50%;
+    background: #171b22dd;
+    color: #fff;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+}
+.portrait-lightbox-close:hover {
+    background: #343c49;
+}
 .profile-caption {
     color: var(--muted-color);
     margin-top: 16px;
@@ -823,7 +880,7 @@ h2 {
             </header>
             <section id="experience" class="academic-about" aria-label="Experience">
                 <aside class="academic-profile">
-                    <a class="portrait-link" href="images/profile-full.jpg?v=20261030-hd" target="_blank" rel="noopener noreferrer" aria-label="View full-resolution portrait of Houyi Li (opens in a new tab)" title="View full-resolution portrait">
+                    <a class="portrait-link" href="images/profile-full.jpg?v=20261030-hd" aria-label="View full-resolution portrait of Houyi Li" aria-haspopup="dialog" aria-controls="portrait-lightbox" title="View full-resolution portrait">
                         <img class="portrait" src="images/profile.webp?v=20261030-hd" srcset="images/profile-small.webp?v=20261030-hd 360w, images/profile.webp?v=20261030-hd 1208w" sizes="(max-width: 380px) 72px, (max-width: 700px) 90px, 238px" alt="Portrait of Houyi Li (李厚意)" width="302" height="349" decoding="async">
                     </a>
                     <div class="profile-caption">Full Stack: Data · Infra · Algorithms</div>
@@ -1067,7 +1124,12 @@ h2 {
         <footer class="credit">Design adapted from <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener noreferrer">al-folio</a> · Content © Houyi Li
 <div>Visitor analytics by <a href="https://statcounter.com/about/legal/#privacy" target="_blank" rel="noopener">Statcounter · Privacy</a></div>
 </footer>
+        <dialog class="portrait-lightbox" id="portrait-lightbox" aria-label="Full-resolution portrait of Houyi Li">
+            <button class="portrait-lightbox-close" type="button" aria-label="Close portrait" autofocus><span aria-hidden="true">×</span></button>
+            <img class="portrait-lightbox-image" alt="Full-resolution portrait of Houyi Li (李厚意)" width="2215" height="2560" decoding="async">
+        </dialog>
         <script src="assets/appearance.js" defer></script>
+        <script src="assets/portrait-lightbox.js?v=20261030.1" defer></script>
         <!-- Production-only visitor analytics; see docs/maintenance.md for verification. -->
         <script id="visitor-analytics" src="assets/visitor-analytics.js?v=2026-10-24.1" defer></script>
     </body>
